@@ -4,7 +4,7 @@
         background: black;
         color: #ffffff;
         margin-top: 60px;
-        border-top: 1px solid #e5e5e5;
+        border-top: 1px solid white;
     }
 
     .footer-container {
@@ -16,10 +16,11 @@
     /* Main Footer Content */
     .footer-content {
         display: grid;
-        grid-template-columns: 2.5fr 1fr 1fr 1fr 1.5fr;
-        gap: 60px;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
         padding: 60px 0 40px;
-        border-bottom: 1px solid #e5e5e5;
+        border-bottom: 1px solid white;
+        justify-content: space-between;
     }
 
     /* Brand Section */
@@ -34,26 +35,21 @@
         margin-bottom: 16px;
     }
 
-    .logo-icon {
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.2rem;
+    .logo-image {
+        width: auto;
+        height: 36px; /* Disesuaikan dengan tinggi teks brand-name (1.5rem ≈ 24px + margin) */
+        object-fit: contain;
+        border-radius: 6px;
     }
 
     .brand-name {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #333333;
+        color: #ffffff; /* Diubah ke putih karena background hitam */
     }
 
     .brand-description {
-        color: #666666;
+        color: white;
         line-height: 1.6;
         margin-bottom: 24px;
         font-size: 0.95rem;
@@ -68,7 +64,7 @@
         width: 36px;
         height: 36px;
         background: transparent;
-        color: #666666;
+        color: white;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,13 +72,13 @@
         text-decoration: none;
         transition: all 0.3s ease;
         font-size: 1.1rem;
-        border: 1px solid #e5e5e5;
+        border: 1px solid white;
     }
 
     .social-link:hover {
-        background: #007bff;
+        background: #ff6b6b;
         color: white;
-        border-color: #007bff;
+        border-color: #ff6b6b;
     }
 
     /* Footer Columns */
@@ -94,7 +90,7 @@
         font-size: 1.1rem;
         font-weight: 600;
         margin-bottom: 20px;
-        color: #333333;
+        color: #ffffff; /* Diubah ke putih */
     }
 
     .footer-links {
@@ -108,14 +104,14 @@
     }
 
     .footer-links a {
-        color: #666666;
+        color: white;
         text-decoration: none;
         font-size: 0.95rem;
         transition: color 0.3s ease;
     }
 
     .footer-links a:hover {
-        color: #007bff;
+        color: #ff6b6b;
     }
 
     /* Contact Info */
@@ -129,7 +125,7 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        color: #666666;
+        color: #cccccc; /* Diubah ke abu-abu terang */
         font-size: 0.95rem;
     }
 
@@ -147,14 +143,14 @@
 
     .footer-bottom-content {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         gap: 20px;
     }
 
     .copyright p {
-        color: #666666;
+        color: white;
         font-size: 0.9rem;
         margin: 0;
     }
@@ -165,21 +161,21 @@
     }
 
     .footer-legal a {
-        color: #666666;
+        color: white;
         text-decoration: none;
         font-size: 0.9rem;
         transition: color 0.3s ease;
     }
 
     .footer-legal a:hover {
-        color: #007bff;
+        color: #ff6b6b;
     }
 
     /* Responsive Design */
     @media (max-width: 1024px) {
         .footer-content {
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+            gap: 30px;
         }
     }
 
@@ -201,6 +197,10 @@
             text-align: center;
             gap: 16px;
         }
+
+        .logo-image {
+            height: 32px; /* Sedikit lebih kecil di mobile */
+        }
     }
 
     @media (max-width: 480px) {
@@ -219,6 +219,10 @@
         .social-links {
             justify-content: flex-start;
         }
+
+        .logo-image {
+            height: 28px; /* Lebih kecil lagi di layar sangat kecil */
+        }
     }
 </style>
 <!-- Footer -->
@@ -229,12 +233,10 @@
             <!-- Brand Section -->
             <div class="footer-brand">
                 <div class="brand-logo">
-                    <div class="logo-icon">
-                        <i class="bi bi-bag-check"></i>
-                    </div>
-                    <span class="brand-name">Hero's Gear</span>
+                    <!-- Ganti dengan path gambar logo Anda -->
+                    <img src="storage/image/maneviz-white.png" alt="Hero's Gear Logo" class="logo-image">
                 </div>
-                <p class="brand-description">Discover your style with our premium collection of fashion essentials. From trendy streetwear to timeless classics.</p>
+                <p class="brand-description">MANEVIZ is a shop that sells clothes, shoes, hats, and hoodies with attractive designs.</p>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
@@ -244,52 +246,37 @@
                 </div>
             </div>
 
-            <!-- Company -->
-            <div class="footer-column">
-                <h4 class="footer-title">Company</h4>
-                <ul class="footer-links">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#community">Community</a></li>
-                    <li><a href="#testimonial">Testimonial</a></li>
-                </ul>
-            </div>
-
-            <!-- Support -->
-            <div class="footer-column">
-                <h4 class="footer-title">Support</h4>
-                <ul class="footer-links">
-                    <li><a href="#help">Help Center</a></li>
-                    <li><a href="#tweet">Tweet @ Us</a></li>
-                    <li><a href="#webinar">Webinars</a></li>
-                    <li><a href="#feedback">Feedback</a></li>
-                </ul>
-            </div>
-
             <!-- Links -->
             <div class="footer-column">
                 <h4 class="footer-title">Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#courses">Courses</a></li>
-                    <li><a href="#become-teacher">Become Teacher</a></li>
-                    <li><a href="#service">Service</a></li>
-                    <li><a href="#all-in-one">All in One</a></li>
+                    <li><a href="#about">Home</a></li>
+                    <li><a href="#services">Prodducts</a></li>
+                    <li><a href="#community">About</a></li>
+                    <li><a href="#testimonial">Contact</a></li>
                 </ul>
             </div>
 
-            <!-- Contact Us -->
+            <!-- Products -->
             <div class="footer-column">
-                <h4 class="footer-title">Contact Us</h4>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="bi bi-telephone-fill"></i>
-                        <span>(91) 98765 4321 54</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="bi bi-envelope-fill"></i>
-                        <span>support@email.com</span>
-                    </div>
-                </div>
+                <h4 class="footer-title">Products</h4>
+                <ul class="footer-links">
+                    <li><a href="#help">Hat</a></li>
+                    <li><a href="#tweet">Shirt</a></li>
+                    <li><a href="#webinar">Hoodies</a></li>
+                    <li><a href="#feedback">Trousers</a></li>
+                </ul>
+            </div>
+
+            <!-- Our website -->
+            <div class="footer-column">
+                <h4 class="footer-title">Our website</h4>
+                <ul class="footer-links">
+                    <li><a href="#courses">Refund Policy</a></li>
+                    <li><a href="#become-teacher">How to Order</a></li>
+                    <li><a href="#service">FAQs</a></li>
+                    <li><a href="#all-in-one">Terms & Conditions</a></li>
+                </ul>
             </div>
         </div>
 
@@ -297,13 +284,7 @@
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <div class="copyright">
-                    <p>© Copyright by CodedUI. All rights reserved.</p>
-                </div>
-                <div class="footer-legal">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Use</a>
-                    <a href="#legal">Legal</a>
-                    <a href="#sitemap">Site Map</a>
+                    <p>© Copyright by MANEVIZ. All rights reserved.</p>
                 </div>
             </div>
         </div>
