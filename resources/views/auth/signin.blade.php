@@ -1,59 +1,69 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #f2f6fc;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
         margin: 0;
+        padding: 0;
+        background: #f2f2f2;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
 
-    .login-container {
-        background: white;
-        padding: 40px 30px;
+    .container {
+        display: flex;
+        width: 900px;
+        background: #fff;
         border-radius: 12px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
 
-    .login-container h2 {
+    .left-panel {
+        flex: 1;
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .left-panel h2 {
         text-align: center;
+        color: #26a69a;
         margin-bottom: 25px;
-        color: #333;
     }
 
-    form input {
-        width: 100%;
-        padding: 12px 15px;
-        margin-bottom: 15px;
+    .left-panel form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .left-panel input {
+        padding: 12px 14px;
         border: 1px solid #ccc;
         border-radius: 8px;
-        transition: border-color 0.3s;
     }
 
-    form input:focus {
-        border-color: #007bff;
-        outline: none;
-    }
-
-    form button {
-        width: 100%;
+    .left-panel button {
         padding: 12px;
-        background-color: #007bff;
-        color: white;
-        border: none;
+        background: white;
+        color: black;
+        border: 2px solid black;
         border-radius: 8px;
-        font-size: 16px;
+        font-weight: bold;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: all 0.3s ease;
     }
 
-    form button:hover {
-        background-color: #0056b3;
+    .left-panel button:hover {
+        background: black;
+        color: white;
     }
 
     .btn-google {
@@ -66,30 +76,29 @@
         border-radius: 8px;
         text-decoration: none;
         font-weight: bold;
-        margin-top: 10px;
     }
 
     .btn-google i {
         margin-right: 8px;
     }
 
-    p {
+    .left-panel p {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 10px;
     }
 
-    a {
-        color: #007bff;
+    .left-panel a {
+        color: #26a69a;
         text-decoration: none;
     }
 
-    a:hover {
+    .left-panel a:hover {
         text-decoration: underline;
     }
 
     .message {
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         font-size: 14px;
     }
 
@@ -100,31 +109,68 @@
     .message.success {
         color: green;
     }
+
+    .right-panel {
+        flex: 1;
+        background: linear-gradient(135deg, #26a69a, #26c6da);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        animation: slideIn 0.8s ease-out forwards;
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    .right-panel h2 {
+        margin: 0 0 10px;
+        font-size: 28px;
+    }
+
+    .right-panel p {
+        margin: 0;
+        text-align: center;
+    }
+
+    @keyframes slideIn {
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
 </style>
 
-<div class="login-container">
-    <h2>Login</h2>
+<div class="container">
+    <div class="left-panel">
+        <h2>Sign In</h2>
 
-    @if(session('success'))
-        <p class="message success">{{ session('success') }}</p>
-    @endif
+        @if(session('success'))
+            <p class="message success">{{ session('success') }}</p>
+        @endif
 
-    @if($errors->any())
-        <p class="message error">{{ $errors->first() }}</p>
-    @endif
+        @if($errors->any())
+            <p class="message error">{{ $errors->first() }}</p>
+        @endif
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-        <input name="email" type="email" placeholder="Email" required>
-        <input name="password" type="password" placeholder="Password" required>
-        <button type="submit">Sign In</button>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="password" type="password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
 
-        <a href="{{ route('google.login') }}" class="btn-google">
-            <i class="fab fa-google"></i> Login with Google
-        </a>
-    </form>
+            <a href="{{ route('google.login') }}" class="btn-google">
+                <i class="fab fa-google"></i> Login with Google
+            </a>
+        </form>
 
-    <p>Belum punya akun? <a href="{{ route('signUp') }}">Sign Up</a></p>
-    <p><a href="{{ route('password.request') }}">Forgot Password?</a></p>
+        <p>Belum punya akun? <a href="{{ route('signUp') }}">Sign Up</a></p>
+        <p><a href="{{ route('password.request') }}">Forgot Password?</a></p>
+    </div>
 
+    <div class="right-panel">
+        <h2>Welcome!</h2>
+        <p>Don't have an account?<br> Sign up now and join us!</p>
+    </div>
 </div>

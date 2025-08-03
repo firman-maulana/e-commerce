@@ -1,110 +1,221 @@
-<style>
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        background: #f2f2f2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    .auth-container {
-        background-color: #fff;
-        padding: 40px 30px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        width: 100%;
-        max-width: 400px;
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    .auth-container h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        color: #333;
-    }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f2f2f2;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .auth-container input[type="text"],
-    .auth-container input[type="email"],
-    .auth-container input[type="password"] {
-        width: 100%;
-        padding: 12px 14px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        transition: border 0.3s;
-    }
+        .container {
+            display: flex;
+            width: 900px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
 
-    .auth-container input:focus {
-        border-color: #1e90ff;
-        outline: none;
-    }
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(45deg, #000, #333, #666, #333, #000);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .auth-container button {
-        width: 100%;
-        padding: 12px;
-        background-color: #1e90ff;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-    }
+        /* Animasi gradient background */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
 
-    .auth-container button:hover {
-        background-color: #0c7ddf;
-    }
+            50% {
+                background-position: 100% 50%;
+            }
 
-    .auth-container a {
-        color: #1e90ff;
-        text-decoration: none;
-    }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-    .auth-container a:hover {
-        text-decoration: underline;
-    }
+        /* Tambahan efek floating particles */
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: floating 12s ease-in-out infinite;
+        }
 
-    .auth-container .btn-google {
-        background-color: #dd4b39;
-        margin-top: 10px;
-    }
+        @keyframes floating {
 
-    .auth-container p {
-        text-align: center;
-        margin-top: 15px;
-    }
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
 
-    .auth-container .error,
-    .auth-container .success {
-        text-align: center;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
+            33% {
+                transform: translateY(-10px) rotate(1deg);
+            }
 
-    .auth-container .error {
-        color: red;
-    }
+            66% {
+                transform: translateY(5px) rotate(-1deg);
+            }
+        }
 
-    .auth-container .success {
-        color: green;
-    }
-</style>
-<div class="auth-container">
-    <h2>Register</h2>
+        .left-panel h2 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            position: relative;
+            z-index: 2;
+        }
 
-    @if($errors->any())
-        <div class="error">{{ $errors->first() }}</div>
-    @endif
+        .left-panel p {
+            margin: 0 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
 
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
-        <input name="name" type="text" placeholder="Nama" required>
-        <input name="email" type="email" placeholder="Email" required>
-        <input name="password" type="password" placeholder="Password" required>
-        <input name="password_confirmation" type="password" placeholder="Konfirmasi Password" required>
-        <button type="submit">Sign Up</button>
-    </form>
+        .left-panel a{
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            background: transparent;
+            border: 2px solid white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-    <p>Sudah punya akun? <a href="{{ route('signIn') }}">Sign In</a></p>
-</div>
+        .left-panel a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 40px 30px;
+        }
+
+        .right-panel h2 {
+            text-align: center;
+            color: black;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input {
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        form button {
+            padding: 12px;
+            background: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        form button:hover {
+            background: black;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .right-panel p {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .right-panel a {
+            color: #ff6b6b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .right-panel a:hover {
+            text-decoration: underline;
+            color: #ff5252;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h2>Welcome Back!</h2>
+            <p>To keep connected with us please<br> login with your personal info</p>
+            <a href="{{ route('signIn') }}" class="btn-signin">SIGN IN</a>
+        </div>
+        <div class="right-panel">
+            <h2>Create Account</h2>
+            <form method="POST" action="#">
+                <input name="email" type="email" placeholder="Email" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button type="submit">SIGN UP</button>
+            </form>
+
+            <p>Sudah punya akun? <a href="{{ route('signIn') }}">Sign In</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

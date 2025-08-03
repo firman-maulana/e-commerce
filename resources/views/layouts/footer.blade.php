@@ -40,6 +40,7 @@
         height: 36px; /* Disesuaikan dengan tinggi teks brand-name (1.5rem ≈ 24px + margin) */
         object-fit: contain;
         border-radius: 6px;
+        margin-left: -5px;
     }
 
     .brand-name {
