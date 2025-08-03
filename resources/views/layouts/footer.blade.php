@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
 <style>
     footer {
-        background: #ffffff;
-        color: #333333;
+        background: black;
+        color: #ffffff;
         margin-top: 60px;
         border-top: 1px solid #e5e5e5;
     }
