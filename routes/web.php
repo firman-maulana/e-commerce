@@ -4,12 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
-Route::get('/', function () {
-    return view('beranda');
-});
-
-// Beranda (public)
+// === ROUTE UNTUK HALAMAN UTAMA ===
 Route::get('/', function () {
     return view('beranda');
 })->name('beranda');
@@ -23,19 +21,27 @@ Route::middleware('guest')->group(function () {
     // Halaman register & proses register
     Route::get('/signUp', [RegisterController::class, 'showSignUpForm'])->name('signUp');
     Route::post('/register', [RegisterController::class, 'register'])->name('register');
+
+    // Forgot password (OTP)
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+    // Reset password form dan proses
+    Route::get('/reset-password', [ResetPasswordController::class, 'showResetForm'])->name('password.reset.form');
+    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
 
 // === ROUTE UNTUK USER YANG SUDAH LOGIN ===
+Route::middleware('auth')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-// Logout
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+    // Logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 
-// Dashboard (hanya untuk yang sudah login)
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
-
-Route::get('/Auth/Google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+// === GOOGLE LOGIN ===
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-
-?>
