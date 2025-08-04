@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Sign Up</title>
     <style>
         * {
             box-sizing: border-box;
@@ -104,7 +104,7 @@
             z-index: 2;
         }
 
-        .left-panel a{
+        .left-panel a {
             display: inline-block;
             text-align: center;
             text-decoration: none;
@@ -195,25 +195,74 @@
             background: rgba(255, 0, 0, 0.1);
             border-radius: 5px;
         }
+
+        /* Tambahan animasi slide */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-left {
+    animation: slideInLeft 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.animate-right {
+    animation: slideInRight 1s ease forwards;
+}
+
+
+
+        
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="left-panel">
+        <div class="left-panel animate-left">
             <h2>Welcome Back!</h2>
             <p>To keep connected with us please<br> login with your personal info</p>
             <a href="{{ route('signIn') }}" class="btn-signin">SIGN IN</a>
         </div>
-        <div class="right-panel">
+        <div class="right-panel animate-right">
             <h2>Create Account</h2>
-            <form method="POST" action="#">
+            @if ($errors->any())
+    <div class="error">
+        @foreach ($errors->all() as $error)
+            <div>{{ $error }}</div>
+        @endforeach
+    </div>
+@endif
+
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                <input name="name" type="text" placeholder="Full Name" required>
                 <input name="email" type="email" placeholder="Email" required>
                 <input name="password" type="password" placeholder="Password" required>
+                <input name="password_confirmation" type="password" placeholder="Confirm Password" required>
                 <button type="submit">SIGN UP</button>
             </form>
 
+
             <p>Sudah punya akun? <a href="{{ route('signIn') }}">Sign In</a></p>
+
         </div>
     </div>
 </body>
