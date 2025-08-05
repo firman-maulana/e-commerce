@@ -261,7 +261,7 @@
             </form>
 
 
-            <p>Sudah punya akun? <a href="{{ route('signIn') }}">Sign In</a></p>
+            <p>Already have an account? <a href="{{ route('signIn') }}">Sign In</a></p>
 
         </div>
     </div>

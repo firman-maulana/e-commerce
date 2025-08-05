@@ -12,6 +12,18 @@ Route::get('/', function () {
     return view('beranda');
 })->name('beranda');
 
+Route::get('/products', function () {
+    return view('products');
+})->name('products');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 // === ROUTE UNTUK USER YANG BELUM LOGIN ===
 Route::middleware('guest')->group(function () {
     // Halaman login & proses login
@@ -33,11 +45,6 @@ Route::middleware('guest')->group(function () {
 
 // === ROUTE UNTUK USER YANG SUDAH LOGIN ===
 Route::middleware('auth')->group(function () {
-    // Dashboard
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

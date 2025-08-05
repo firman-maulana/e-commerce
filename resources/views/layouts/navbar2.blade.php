@@ -37,7 +37,7 @@
     }
 
     .nav-menu a {
-        color: white;
+        color: black;
         text-decoration: none;
         font-weight: 700;
         font-size: 1rem;
@@ -46,7 +46,7 @@
     }
 
     .navbar.scrolled .nav-menu a {
-        color: #333;
+        color: black;
     }
 
     .nav-menu a:hover {
@@ -99,21 +99,21 @@
         position: relative;
     }
 
-    .search-bar {
-        padding: 8px 40px 8px 15px;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 25px;
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-        font-size: 0.9rem;
-        width: 200px;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-    }
+.search-bar {
+    padding: 8px 40px 8px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    background: #000; /* black background */
+    color: white; /* white text */
+    font-size: 0.9rem;
+    width: 200px;
+    transition: all 0.3s ease;
+}
 
-    .search-bar::placeholder {
-        color: rgba(255, 255, 255, 0.7);
-    }
+.search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* white-ish placeholder */
+}
+
 
     .search-bar:focus {
         outline: none;
@@ -137,19 +137,20 @@
         background: rgba(255, 255, 255, 0.9);
     }
 
-    .search-icon {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: white;
-        font-size: 1rem;
-        pointer-events: none;
-    }
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1rem;
+    pointer-events: none;
+}
 
-    .navbar.scrolled .search-icon {
-        color: #333;
-    }
+.navbar.scrolled .search-icon {
+    color: white;
+}
+
 
     .nav-icons {
         display: flex;
@@ -159,7 +160,7 @@
     }
 
     .nav-icon {
-        color: white;
+        color: black;
         font-size: 1.2rem;
         cursor: pointer;
         transition: color 0.3s ease;
@@ -170,7 +171,7 @@
     }
 
     .navbar.scrolled .nav-icon {
-        color: #333;
+        color: black;
     }
 
     .nav-icon:hover {
@@ -310,6 +311,7 @@
 </ul>
 
 
+
         <!-- Logo akan berubah saat scroll -->
         <img id="logo" src="storage/image/maneviz.png" alt="TIMELESS Logo" class="logo">
 
@@ -340,14 +342,6 @@
 
             </div>
             @endauth
-
-            @guest
-            <!-- Tombol saat belum login -->
-            <div class="nav-icons">
-                <a href="{{ route('signIn') }}" class="nav-auth-btn">Sign In</a>
-                <a href="{{ route('signUp') }}" class="nav-auth-btn">Sign Up</a>
-            </div>
-            @endguest
 
         </div>
 

@@ -313,14 +313,14 @@
         </a>
     </form>
 
-    <p>Belum punya akun? <a href="{{ route('signUp') }}">Sign Up</a></p>
+    <p>Don't have an account yet? <a href="{{ route('signUp') }}">Sign Up</a></p>
     <p><a href="{{ route('password.request') }}">Forgot Password?</a></p>
 </div>
 
 
         <div class="right-panel animate-right">
             <h2>Hello, Friend!</h2>
-            <p>Enter your personal details <br>and start journey with us</p>
+            <p>Enter your personal details <br>and start shopping at our store</p>
             <a href="{{ route('signUp') }}">SIGN UP</a>
         </div>
     </div>
