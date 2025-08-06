@@ -127,7 +127,6 @@
 
         .left-panel p {
             text-align: center;
-            margin-top: 10px;
         }
 
         .left-panel a {
@@ -135,6 +134,21 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
+        .forgotpassword {
+    text-align: left;
+    margin: 0;
+}
+
+.forgot {
+    color: #ff6b6b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-right: 250px;
+}
 
         .message {
             text-align: center;
@@ -308,6 +322,7 @@
                 @csrf
                 <input name="email" type="email" placeholder="Email" value="{{ old('email') }}" required>
                 <input name="password" type="password" placeholder="Password" required>
+                <p class="forgotpassword"><a class="forgot" href="{{ route('password.request') }}">Forgot Password?</a></p>
                 <button type="submit">Sign In</button>
 
                 <a href="{{ route('google.login') }}" class="btn-google">
@@ -317,7 +332,6 @@
             </form>
 
             <p>Don't have an account yet? <a href="{{ route('signUp') }}">Sign Up</a></p>
-            <p><a href="{{ route('password.request') }}">Forgot Password?</a></p>
         </div>
 
 

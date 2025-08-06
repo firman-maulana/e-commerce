@@ -99,20 +99,23 @@
         position: relative;
     }
 
-.search-bar {
-    padding: 8px 40px 8px 15px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 25px;
-    background: #000; /* black background */
-    color: white; /* white text */
-    font-size: 0.9rem;
-    width: 200px;
-    transition: all 0.3s ease;
-}
+    .search-bar {
+        padding: 8px 40px 8px 15px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        background: #000;
+        /* black background */
+        color: white;
+        /* white text */
+        font-size: 0.9rem;
+        width: 200px;
+        transition: all 0.3s ease;
+    }
 
-.search-bar::placeholder {
-    color: white; /* white-ish placeholder */
-}
+    .search-bar::placeholder {
+        color: white;
+        /* white-ish placeholder */
+    }
 
 
     .search-bar:focus {
@@ -136,20 +139,19 @@
         background: rgba(255, 255, 255, 0.9);
     }
 
-.search-icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 1rem;
-    pointer-events: none;
-}
+    .search-icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 1rem;
+        pointer-events: none;
+    }
 
-.navbar.scrolled .search-icon {
-    color: black;
-}
-
+    .navbar.scrolled .search-icon {
+        color: black;
+    }
 
     .nav-icons {
         display: flex;
@@ -183,50 +185,77 @@
 
     .nav-auth-btn {
         margin-left: 10px;
-        padding: 6px 12px;
-        border: 1px solid #333;
+        padding: 6px 16px;
+        border: 2px solid #ff6b6b;
         border-radius: 5px;
         text-decoration: none;
         font-size: 14px;
-        color: #333;
-        background-color: #fff;
+        color: #ff6b6b;
+        background-color: transparent;
+        font-weight: bold;
         transition: all 0.3s ease;
     }
 
     .nav-auth-btn:hover {
-        background-color: #333;
+        background-color: black;
+        color: #fff;
+        box-shadow: 0 2px 10px rgba(255, 107, 107, 0.4);
+    }
+
+    .sign-in-btn {
+        background-color: transparent;
+        color:  black;
+        border: 2px solid black;
+    }
+
+    .sign-in-btn:hover {
+        background-color: black;
         color: #fff;
     }
-.profile-dropdown {
-    position: relative;
-}
 
-.profile-menu {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 10px;
-    z-index: 1001;
-}
+    .sign-up-btn {
+        background-color: black;
+        color: #fff;
+        border: 2px solid black;
+    }
 
-.profile-menu button {
-    border: none;
-    background: none;
-    color: #333;
-    font-size: 14px;
-    padding: 5px 10px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-}
+    .sign-up-btn:hover {
+        background-color: transparent;
+        color: black;
+    }
 
-.profile-menu button:hover {
-    background: #f0f0f0;
-}
+
+
+    .profile-dropdown {
+        position: relative;
+    }
+
+    .profile-menu {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        z-index: 1001;
+    }
+
+    .profile-menu button {
+        border: none;
+        background: none;
+        color: #333;
+        font-size: 14px;
+        padding: 5px 10px;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+    }
+
+    .profile-menu button:hover {
+        background: #f0f0f0;
+    }
 
 
     /* Mobile Menu */
@@ -287,6 +316,13 @@
         }
     }
 
+    @media (max-width: 480px) {
+        .nav-auth-btn {
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+    }
+
     /* Animations */
     @keyframes fadeInUp {
         from {
@@ -302,12 +338,12 @@
 </style>
 <nav class="navbar" id="navbar">
     <div class="nav-content">
-<ul class="nav-menu">
-    <li><a href="{{ route('beranda') }}">Home</a></li>
-    <li><a href="{{ route('products') }}">Products</a></li>
-    <li><a href="{{ route('about') }}">About</a></li>
-    <li><a href="{{ route('contact') }}">Contact</a></li>
-</ul>
+        <ul class="nav-menu">
+            <li><a href="{{ route('beranda') }}">Home</a></li>
+            <li><a href="{{ route('products') }}">Products</a></li>
+            <li><a href="{{ route('about') }}">About</a></li>
+            <li><a href="{{ route('contact') }}">Contact</a></li>
+        </ul>
 
 
 
@@ -319,7 +355,6 @@
                 <input type="text" class="search-bar" placeholder="Search products...">
                 <span class="search-icon">⌕</span>
             </div>
-
             @auth
             <!-- Ikon saat sudah login -->
             <div class="nav-icons">
@@ -330,17 +365,25 @@
                     <i class="bi bi-truck"></i>
                 </span>
                 <div class="nav-icon profile-dropdown">
-    <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>
-    <div class="profile-menu" id="profileDropdown">
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
-    </div>
-</div>
-
+                    <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>
+                    <div class="profile-menu" id="profileDropdown">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
             </div>
             @endauth
+
+            @guest
+            <!-- Tombol saat belum login -->
+            <div class="nav-icons">
+                <a href="{{ route('signIn') }}" class="nav-auth-btn sign-in-btn">Sign In</a>
+                <a href="{{ route('signUp') }}" class="nav-auth-btn sign-up-btn">Sign Up</a>
+
+            </div>
+            @endguest
 
         </div>
 
@@ -349,18 +392,17 @@
 </nav>
 
 <script>
-    
     let isScrolled = false;
 
-window.addEventListener('scroll', function () {
-    const navbar = document.getElementById('navbar');
-    
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
 
     // Smooth scrolling for anchor links
@@ -393,18 +435,17 @@ window.addEventListener('scroll', function () {
     window.addEventListener('load', preloadImages);
 
     function toggleProfileDropdown() {
-    const dropdown = document.getElementById('profileDropdown');
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-}
-
-// Tutup dropdown saat klik di luar
-document.addEventListener('click', function(e) {
-    const profileIcon = document.querySelector('.profile-dropdown');
-    const dropdown = document.getElementById('profileDropdown');
-
-    if (!profileIcon.contains(e.target)) {
-        dropdown.style.display = 'none';
+        const dropdown = document.getElementById('profileDropdown');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     }
-});
 
+    // Tutup dropdown saat klik di luar
+    document.addEventListener('click', function(e) {
+        const profileIcon = document.querySelector('.profile-dropdown');
+        const dropdown = document.getElementById('profileDropdown');
+
+        if (!profileIcon.contains(e.target)) {
+            dropdown.style.display = 'none';
+        }
+    });
 </script>

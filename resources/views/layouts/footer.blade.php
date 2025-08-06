@@ -37,7 +37,8 @@
 
     .logo-image {
         width: auto;
-        height: 36px; /* Disesuaikan dengan tinggi teks brand-name (1.5rem ≈ 24px + margin) */
+        height: 36px;
+        /* Disesuaikan dengan tinggi teks brand-name (1.5rem ≈ 24px + margin) */
         object-fit: contain;
         border-radius: 6px;
         margin-left: -5px;
@@ -46,7 +47,8 @@
     .brand-name {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #ffffff; /* Diubah ke putih karena background hitam */
+        color: #ffffff;
+        /* Diubah ke putih karena background hitam */
     }
 
     .brand-description {
@@ -91,7 +93,8 @@
         font-size: 1.1rem;
         font-weight: 600;
         margin-bottom: 20px;
-        color: #ffffff; /* Diubah ke putih */
+        color: #ffffff;
+        /* Diubah ke putih */
     }
 
     .footer-links {
@@ -126,7 +129,8 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        color: #cccccc; /* Diubah ke abu-abu terang */
+        color: #cccccc;
+        /* Diubah ke abu-abu terang */
         font-size: 0.95rem;
     }
 
@@ -200,7 +204,8 @@
         }
 
         .logo-image {
-            height: 32px; /* Sedikit lebih kecil di mobile */
+            height: 32px;
+            /* Sedikit lebih kecil di mobile */
         }
     }
 
@@ -222,7 +227,8 @@
         }
 
         .logo-image {
-            height: 28px; /* Lebih kecil lagi di layar sangat kecil */
+            height: 28px;
+            /* Lebih kecil lagi di layar sangat kecil */
         }
     }
 </style>
@@ -251,10 +257,10 @@
             <div class="footer-column">
                 <h4 class="footer-title">Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#about">Home</a></li>
-                    <li><a href="#services">Prodducts</a></li>
-                    <li><a href="#community">About</a></li>
-                    <li><a href="#testimonial">Contact</a></li>
+                    <li><a href="{{ route('beranda') }}">Home</a></li>
+                    <li><a href="{{ route('products') }}">Products</a></li>
+                    <li><a href="{{ route('about') }}">About</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>
 
@@ -262,10 +268,11 @@
             <div class="footer-column">
                 <h4 class="footer-title">Products</h4>
                 <ul class="footer-links">
-                    <li><a href="#help">Hat</a></li>
-                    <li><a href="#tweet">Shirt</a></li>
-                    <li><a href="#webinar">Hoodies</a></li>
-                    <li><a href="#feedback">Trousers</a></li>
+                    <li><a href="/products?filter=hat">Hat</a></li>
+                    <li><a href="/products?filter=shirt">Shirt</a></li>
+                    <li><a href="/products?filter=hoodie">Hoodie</a></li>
+                    <li><a href="/products?filter=trousers">Trousers</a></li>
+
                 </ul>
             </div>
 

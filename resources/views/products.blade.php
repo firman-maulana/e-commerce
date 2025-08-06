@@ -454,6 +454,11 @@
         }
     }
 
+    html {
+  scroll-behavior: smooth;
+}
+
+
 </style>
 @endsection
 
@@ -462,11 +467,11 @@
     <div class="hero-content">
         <p class="hero-subtitle">The New Innovation:</p>
         <h1 class="hero-title">Form Chaos To Cosmos</h1>
-        <a class="hero-button" href="{{ route('signIn') }}">Get Started</a>
+        <a class="hero-button" href="#bestseller">Get Started</a>
     </div>
 </section>
 
-<section class="bestseller">
+<section id="bestseller">
     <div class="bestseller-header">
         <h2>Best Seller</h2>
     </div>
@@ -936,13 +941,12 @@
 </section>
 
 <script>
-// Filter functionality with improved grid handling
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const filterItems = document.querySelectorAll('.filter-item');
     const collectionProducts = document.querySelectorAll('.collection-product');
     const productsGrid = document.querySelector('.collection-products-grid');
-    
-    // Function to shuffle array (Fisher-Yates algorithm)
+    const ourCollectionSection = document.querySelector('.ourcollection');
+
     function shuffleArray(array) {
         const shuffled = [...array];
         for (let i = shuffled.length - 1; i > 0; i--) {
@@ -951,46 +955,67 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return shuffled;
     }
-    
-    // Initialize with randomized order for "All Product"
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const defaultFilter = urlParams.get('filter') || 'all';
+
     const allProducts = Array.from(collectionProducts);
-    const shuffledProducts = shuffleArray(allProducts);
-    
-    // Reorder DOM elements based on shuffled array
-    shuffledProducts.forEach(product => {
-        productsGrid.appendChild(product);
-    });
-    
-    filterItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Remove active class from all items
-            filterItems.forEach(filter => filter.classList.remove('active'));
-            // Add active class to clicked item
-            this.classList.add('active');
-            
-            // Get selected filter
-            const selectedFilter = this.getAttribute('data-filter');
-            
-            // Show/hide products based on filter
-            collectionProducts.forEach(product => {
-                const productCategory = product.getAttribute('data-category');
-                
-                if (selectedFilter === 'all' || productCategory === selectedFilter) {
-                    product.classList.remove('hidden');
-                } else {
-                    product.classList.add('hidden');
-                }
-            });
-            
-            // Force grid recalculation after filter change
+
+    if (defaultFilter === 'all') {
+        const shuffledProducts = shuffleArray(allProducts);
+        shuffledProducts.forEach(product => {
+            productsGrid.appendChild(product);
+        });
+    }
+
+    function applyFilter(filterValue, shouldScroll = true) {
+        filterItems.forEach(filter => filter.classList.remove('active'));
+
+        const activeFilter = document.querySelector(`.filter-item[data-filter="${filterValue}"]`);
+        if (activeFilter) {
+            activeFilter.classList.add('active');
+        }
+
+        collectionProducts.forEach(product => {
+            const productCategory = product.getAttribute('data-category');
+            if (filterValue === 'all' || productCategory === filterValue) {
+                product.classList.remove('hidden');
+            } else {
+                product.classList.add('hidden');
+            }
+        });
+
+        setTimeout(() => {
+            productsGrid.style.display = 'none';
+            productsGrid.offsetHeight;
+            productsGrid.style.display = 'grid';
+        }, 10);
+
+        // ✅ Hanya scroll jika parameter filter ada dan bukan 'all'
+        if (shouldScroll && filterValue !== 'all') {
             setTimeout(() => {
-                productsGrid.style.display = 'none';
-                productsGrid.offsetHeight; // Trigger reflow
-                productsGrid.style.display = 'grid';
-            }, 10);
+                if (ourCollectionSection) {
+                    ourCollectionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 50);
+        }
+    }
+
+    // Jalankan saat pertama kali load
+    const isInitialLoad = window.location.search.includes('filter=');
+    applyFilter(defaultFilter, isInitialLoad);
+
+    // Event klik
+    filterItems.forEach(item => {
+        item.addEventListener('click', function () {
+            const selectedFilter = this.getAttribute('data-filter');
+            applyFilter(selectedFilter, true);
+
+            // Update URL tanpa reload
+            const newUrl = `${window.location.pathname}?filter=${selectedFilter}`;
+            history.replaceState(null, '', newUrl);
         });
     });
 });
 </script>
-
 @endsection

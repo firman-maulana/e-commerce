@@ -300,6 +300,36 @@
             transform: translateY(0);
         }
     }
+
+    /* tombol sign in dan sign up */
+    .sign-in-btn {
+        background-color: transparent;
+        color: black;
+        border: 2px solid black;
+    }
+
+    .sign-in-btn:hover {
+        background-color: black;
+        color: #fff;
+    }
+
+    .sign-up-btn {
+        background-color: black;
+        color: #fff;
+        border: 2px solid black;
+    }
+
+    .sign-up-btn:hover {
+        background-color: transparent;
+        color: black;
+    }
+
+    @media (max-width: 480px) {
+        .nav-auth-btn {
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+    }
 </style>
 <nav class="navbar" id="navbar">
     <div class="nav-content">
@@ -345,8 +375,9 @@
             @guest
             <!-- Tombol saat belum login -->
             <div class="nav-icons">
-                <a href="{{ route('signIn') }}" class="nav-auth-btn">Sign In</a>
-                <a href="{{ route('signUp') }}" class="nav-auth-btn">Sign Up</a>
+                <a href="{{ route('signIn') }}" class="nav-auth-btn sign-in-btn">Sign In</a>
+                <a href="{{ route('signUp') }}" class="nav-auth-btn sign-up-btn">Sign Up</a>
+
             </div>
             @endguest
 

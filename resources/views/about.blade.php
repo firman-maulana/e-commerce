@@ -22,18 +22,28 @@
         padding: 40px 20px;
     }
 
-    .header {
-        text-align: left;
-        margin-bottom: 15px;
-        margin-top: 40px;
-    }
+        /* Header Section */
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
 
-    .header h1 {
-        font-size: 2.5em;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 30px;
-    }
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
 
     .content-wrapper {
         display: flex;
@@ -112,10 +122,12 @@
     }
 </style>
 
-<div class="container">
-    <div class="header">
-        <h1>About Us</h1>
-    </div>
+    <section class="hero-section">
+        <h1>About</h1>
+        <p>MANEVIZ is more than fashion — it's a movement born in Malang and built by Gen Z for Gen Z.</p>
+    </section>
+    
+    <div class="container">
 
     <div class="content-wrapper">
         <div class="about-section">

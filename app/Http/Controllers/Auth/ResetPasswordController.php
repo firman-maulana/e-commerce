@@ -44,6 +44,6 @@ public function showResetForm(Request $request)
         // Hapus OTP
         DB::table('password_resets')->where('email', $request->email)->delete();
 
-        return redirect()->route('signIn')->with('success', 'Password berhasil direset. Silakan login.');
+        return redirect()->route('signIn')->with('success', 'Your password has been reset successfully. Please log in.');
     }
 }
