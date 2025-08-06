@@ -410,7 +410,7 @@
         }
     }
 
-    /* Collection Products Grid */
+    /* Collection Products Grid - FIXED VERSION */
     .collection-products-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -422,16 +422,35 @@
     .collection-product {
         display: block;
         transition: all 0.3s ease;
+        /* Ensure consistent width */
+        min-width: 220px;
     }
 
     .collection-product.hidden {
         display: none;
     }
 
+    /* Force grid items to maintain consistent size */
+    @media (min-width: 769px) {
+        .collection-products-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+        
+        .collection-product {
+            /* Ensure all cards have the same width regardless of how many are visible */
+            width: 100%;
+            max-width: none;
+        }
+    }
+
     @media (max-width: 768px) {
         .collection-products-grid {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 12px;
+        }
+        
+        .collection-product {
+            min-width: 200px;
         }
     }
 
@@ -639,6 +658,81 @@
             </div>
         </div>
 
+        <div class="product-card collection-product" data-category="hoodie">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=200&fit=crop" alt="Pullover Hoodie" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3>Pullover Hoodie</h3>
+                <p class="product-brand">Comfort Zone</p>
+                <div class="product-rating">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="rating-text">4.8</span>
+                    <span class="sold-count">789 sold</span>
+                </div>
+                <div class="product-price-container">
+                    <span class="product-price">AED 280.0</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card collection-product" data-category="shirt">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop" alt="Cotton T-Shirt" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3>Cotton T-Shirt</h3>
+                <p class="product-brand">Casual Comfort</p>
+                <div class="product-rating">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="rating-text">4.7</span>
+                    <span class="sold-count">567 sold</span>
+                </div>
+                <div class="product-price-container">
+                    <span class="product-price">AED 120.0</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card collection-product" data-category="bag">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop" alt="Backpack" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3>Travel Backpack</h3>
+                <p class="product-brand">Adventure Gear</p>
+                <div class="product-rating">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="rating-text">4.7</span>
+                    <span class="sold-count">345 sold</span>
+                </div>
+                <div class="product-price-container">
+                    <span class="product-price">AED 180.0</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
         <div class="product-card collection-product" data-category="hat">
             <div class="product-image-container">
                 <img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=300&h=200&fit=crop" alt="Bucket Hat" class="product-image">
@@ -664,14 +758,13 @@
             </div>
         </div>
 
-        <!-- Shirt Products -->
-        <div class="product-card collection-product" data-category="shirt">
+        <div class="product-card collection-product" data-category="trousers">
             <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop" alt="Cotton T-Shirt" class="product-image">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop" alt="Chino Trousers" class="product-image">
             </div>
             <div class="product-info">
-                <h3>Cotton T-Shirt</h3>
-                <p class="product-brand">Casual Comfort</p>
+                <h3>Chino Trousers</h3>
+                <p class="product-brand">Smart Casual</p>
                 <div class="product-rating">
                     <div class="stars">
                         <span class="star">★</span>
@@ -680,11 +773,36 @@
                         <span class="star">★</span>
                         <span class="star">★</span>
                     </div>
-                    <span class="rating-text">4.7</span>
-                    <span class="sold-count">567 sold</span>
+                    <span class="rating-text">4.5</span>
+                    <span class="sold-count">456 sold</span>
                 </div>
                 <div class="product-price-container">
-                    <span class="product-price">AED 120.0</span>
+                    <span class="product-price">AED 195.0</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card collection-product" data-category="shoe">
+            <div class="product-image-container">
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop" alt="Sneakers" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3>Running Sneakers</h3>
+                <p class="product-brand">Sport Gear</p>
+                <div class="product-rating">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="rating-text">4.9</span>
+                    <span class="sold-count">923 sold</span>
+                </div>
+                <div class="product-price-container">
+                    <span class="product-price">AED 340.0</span>
                 </div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
@@ -715,32 +833,6 @@
             </div>
         </div>
 
-        <!-- Hoodie Products -->
-        <div class="product-card collection-product" data-category="hoodie">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=200&fit=crop" alt="Pullover Hoodie" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Pullover Hoodie</h3>
-                <p class="product-brand">Comfort Zone</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <span class="rating-text">4.8</span>
-                    <span class="sold-count">789 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 280.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
         <div class="product-card collection-product" data-category="hoodie">
             <div class="product-image-container">
                 <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop" alt="Zip Hoodie" class="product-image">
@@ -761,32 +853,6 @@
                 </div>
                 <div class="product-price-container">
                     <span class="product-price">AED 320.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- Trousers Products -->
-        <div class="product-card collection-product" data-category="trousers">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop" alt="Chino Trousers" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Chino Trousers</h3>
-                <p class="product-brand">Smart Casual</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <span class="rating-text">4.5</span>
-                    <span class="sold-count">456 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 195.0</span>
                 </div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
@@ -817,32 +883,6 @@
             </div>
         </div>
 
-        <!-- Shoe Products -->
-        <div class="product-card collection-product" data-category="shoe">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop" alt="Sneakers" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Running Sneakers</h3>
-                <p class="product-brand">Sport Gear</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <span class="rating-text">4.9</span>
-                    <span class="sold-count">923 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 340.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
         <div class="product-card collection-product" data-category="shoe">
             <div class="product-image-container">
                 <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=200&fit=crop" alt="Casual Shoes" class="product-image">
@@ -863,32 +903,6 @@
                 </div>
                 <div class="product-price-container">
                     <span class="product-price">AED 275.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- Bag Products -->
-        <div class="product-card collection-product" data-category="bag">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop" alt="Backpack" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Travel Backpack</h3>
-                <p class="product-brand">Adventure Gear</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <span class="rating-text">4.7</span>
-                    <span class="sold-count">345 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 180.0</span>
                 </div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
@@ -922,10 +936,30 @@
 </section>
 
 <script>
-// Filter functionality
+// Filter functionality with improved grid handling
 document.addEventListener('DOMContentLoaded', function() {
     const filterItems = document.querySelectorAll('.filter-item');
     const collectionProducts = document.querySelectorAll('.collection-product');
+    const productsGrid = document.querySelector('.collection-products-grid');
+    
+    // Function to shuffle array (Fisher-Yates algorithm)
+    function shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+    
+    // Initialize with randomized order for "All Product"
+    const allProducts = Array.from(collectionProducts);
+    const shuffledProducts = shuffleArray(allProducts);
+    
+    // Reorder DOM elements based on shuffled array
+    shuffledProducts.forEach(product => {
+        productsGrid.appendChild(product);
+    });
     
     filterItems.forEach(item => {
         item.addEventListener('click', function() {
@@ -947,6 +981,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     product.classList.add('hidden');
                 }
             });
+            
+            // Force grid recalculation after filter change
+            setTimeout(() => {
+                productsGrid.style.display = 'none';
+                productsGrid.offsetHeight; // Trigger reflow
+                productsGrid.style.display = 'grid';
+            }, 10);
         });
     });
 });
