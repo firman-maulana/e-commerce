@@ -197,36 +197,37 @@
         background-color: #333;
         color: #fff;
     }
-.profile-dropdown {
-    position: relative;
-}
 
-.profile-menu {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 10px;
-    z-index: 1001;
-}
+    .profile-dropdown {
+        position: relative;
+    }
 
-.profile-menu button {
-    border: none;
-    background: none;
-    color: #333;
-    font-size: 14px;
-    padding: 5px 10px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-}
+    .profile-menu {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        z-index: 1001;
+    }
 
-.profile-menu button:hover {
-    background: #f0f0f0;
-}
+    .profile-menu button {
+        border: none;
+        background: none;
+        color: #333;
+        font-size: 14px;
+        padding: 5px 10px;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+    }
+
+    .profile-menu button:hover {
+        background: #f0f0f0;
+    }
 
 
     /* Mobile Menu */
@@ -302,12 +303,12 @@
 </style>
 <nav class="navbar" id="navbar">
     <div class="nav-content">
-<ul class="nav-menu">
-    <li><a href="{{ route('beranda') }}">Home</a></li>
-    <li><a href="{{ route('products') }}">Products</a></li>
-    <li><a href="{{ route('about') }}">About</a></li>
-    <li><a href="{{ route('contact') }}">Contact</a></li>
-</ul>
+        <ul class="nav-menu">
+            <li><a href="{{ route('beranda') }}">Home</a></li>
+            <li><a href="{{ route('products') }}">Products</a></li>
+            <li><a href="{{ route('about') }}">About</a></li>
+            <li><a href="{{ route('contact') }}">Contact</a></li>
+        </ul>
 
 
         <!-- Logo akan berubah saat scroll -->
@@ -326,17 +327,17 @@
                     <i class="bi bi-cart3"></i>
                 </span>
                 <span class="nav-icon">
-                    <i class="bi bi-heart"></i>
+                    <i class="bi bi-truck"></i>
                 </span>
                 <div class="nav-icon profile-dropdown">
-    <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>
-    <div class="profile-menu" id="profileDropdown">
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
-    </div>
-</div>
+                    <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>
+                    <div class="profile-menu" id="profileDropdown">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
 
             </div>
             @endauth
@@ -432,18 +433,17 @@
     window.addEventListener('load', preloadImages);
 
     function toggleProfileDropdown() {
-    const dropdown = document.getElementById('profileDropdown');
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-}
-
-// Tutup dropdown saat klik di luar
-document.addEventListener('click', function(e) {
-    const profileIcon = document.querySelector('.profile-dropdown');
-    const dropdown = document.getElementById('profileDropdown');
-
-    if (!profileIcon.contains(e.target)) {
-        dropdown.style.display = 'none';
+        const dropdown = document.getElementById('profileDropdown');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     }
-});
 
+    // Tutup dropdown saat klik di luar
+    document.addEventListener('click', function(e) {
+        const profileIcon = document.querySelector('.profile-dropdown');
+        const dropdown = document.getElementById('profileDropdown');
+
+        if (!profileIcon.contains(e.target)) {
+            dropdown.style.display = 'none';
+        }
+    });
 </script>

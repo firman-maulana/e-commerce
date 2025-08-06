@@ -117,8 +117,7 @@
 
     .search-bar:focus {
         outline: none;
-        border-color: #ffff;
-        background: rgba(255, 255, 255, 0.2);
+        background: black;
         width: 220px;
     }
 
@@ -328,7 +327,7 @@
                     <i class="bi bi-cart3"></i>
                 </span>
                 <span class="nav-icon">
-                    <i class="bi bi-heart"></i>
+                    <i class="bi bi-truck"></i>
                 </span>
                 <div class="nav-icon profile-dropdown">
     <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>

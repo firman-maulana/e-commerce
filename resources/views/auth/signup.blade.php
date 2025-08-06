@@ -168,7 +168,6 @@
         form button:hover {
             background: black;
             color: white;
-            transform: translateY(-1px);
         }
 
         .right-panel p {

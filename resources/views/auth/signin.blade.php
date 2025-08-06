@@ -78,7 +78,6 @@
         .left-panel button:hover {
             background: black;
             color: white;
-            transform: translateY(-1px);
         }
 
         .btn-google {
@@ -99,12 +98,14 @@
 
         /* Perbaikan styling untuk teks dan icon Google */
         .btn-google .google-text {
-            color: white; /* Putih saat background hitam */
+            color: white;
+            /* Putih saat background hitam */
             transition: color 0.3s ease;
         }
 
         .btn-google i {
-            color: white; /* Icon putih saat background hitam */
+            color: white;
+            /* Icon putih saat background hitam */
             margin-right: 8px;
             transition: color 0.3s ease;
         }
@@ -112,15 +113,16 @@
         .btn-google:hover {
             background: white;
             color: black;
-            transform: translateY(-1px);
         }
 
         .btn-google:hover .google-text {
-            color: black; /* Hitam saat background putih */
+            color: black;
+            /* Hitam saat background putih */
         }
 
         .btn-google:hover i {
-            color: black; /* Icon hitam saat background putih */
+            color: black;
+            /* Icon hitam saat background putih */
         }
 
         .left-panel p {
@@ -250,72 +252,73 @@
         }
 
         /* Tambahan animasi slide */
-@keyframes slideInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
 
-@keyframes slideInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-.animate-left {
-    animation: slideInLeft 1s ease forwards;
-    animation-delay: 0.2s;
-}
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
 
-.animate-right {
-    animation: slideInRight 1s ease forwards;
-}
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
+        .animate-left {
+            animation: slideInLeft 1s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .animate-right {
+            animation: slideInRight 1s ease forwards;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-<div class="left-panel animate-left">
-    <h2>Sign In to MANEVIZ</h2>
+        <div class="left-panel animate-left">
+            <h2>Sign In to MANEVIZ</h2>
 
-    @if (session('success'))
-        <div class="message success">
-            {{ session('success') }}
+            @if (session('success'))
+            <div class="message success">
+                {{ session('success') }}
+            </div>
+            @endif
+
+            @if (session('error'))
+            <div class="message error">
+                {{ session('error') }}
+            </div>
+            @endif
+
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <input name="email" type="email" placeholder="Email" value="{{ old('email') }}" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+
+                <a href="{{ route('google.login') }}" class="btn-google">
+                    <i class="fab fa-google"></i>
+                    <span class="google-text">Login with Google</span>
+                </a>
+            </form>
+
+            <p>Don't have an account yet? <a href="{{ route('signUp') }}">Sign Up</a></p>
+            <p><a href="{{ route('password.request') }}">Forgot Password?</a></p>
         </div>
-    @endif
-
-    @if (session('error'))
-        <div class="message error">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-        <input name="email" type="email" placeholder="Email" value="{{ old('email') }}" required>
-        <input name="password" type="password" placeholder="Password" required>
-        <button type="submit">Sign In</button>
-
-        <a href="{{ route('google.login') }}" class="btn-google">
-            <i class="fab fa-google"></i>
-            <span class="google-text">Login with Google</span>
-        </a>
-    </form>
-
-    <p>Don't have an account yet? <a href="{{ route('signUp') }}">Sign Up</a></p>
-    <p><a href="{{ route('password.request') }}">Forgot Password?</a></p>
-</div>
 
 
         <div class="right-panel animate-right">
