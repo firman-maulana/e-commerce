@@ -111,7 +111,7 @@
 }
 
 .search-bar::placeholder {
-    color: rgba(255, 255, 255, 0.6); /* white-ish placeholder */
+    color: white; /* white-ish placeholder */
 }
 
 
@@ -148,7 +148,7 @@
 }
 
 .navbar.scrolled .search-icon {
-    color: white;
+    color: black;
 }
 
 
@@ -350,51 +350,19 @@
 </nav>
 
 <script>
-    // Logo paths - ganti dengan path logo Anda yang sebenarnya
-    const logos = {
-        default: 'storage/image/maneviz-white.png', // Logo untuk navbar transparan
-        scrolled: 'storage/image/maneviz.png' // Logo untuk navbar putih
-    };
-
+    
     let isScrolled = false;
 
-    // Navbar scroll effect dengan perubahan logo
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('navbar');
-        const logo = document.getElementById('logo');
+window.addEventListener('scroll', function () {
+    const navbar = document.getElementById('navbar');
+    
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
 
-        if (window.scrollY > 50) {
-            if (!isScrolled) {
-                navbar.classList.add('scrolled');
-
-                // Fade out effect
-                logo.style.opacity = '0';
-
-                // Change logo after fade out
-                setTimeout(() => {
-                    logo.src = logos.scrolled;
-                    logo.style.opacity = '1';
-                }, 150);
-
-                isScrolled = true;
-            }
-        } else {
-            if (isScrolled) {
-                navbar.classList.remove('scrolled');
-
-                // Fade out effect
-                logo.style.opacity = '0';
-
-                // Change logo back after fade out
-                setTimeout(() => {
-                    logo.src = logos.default;
-                    logo.style.opacity = '1';
-                }, 150);
-
-                isScrolled = false;
-            }
-        }
-    });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

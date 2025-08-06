@@ -33,6 +33,7 @@
     background-color: white;
     text-align: center;
     padding: 50px 20px;
+    margin-top: 35px;
 }
 
 .hero-content {
@@ -40,13 +41,12 @@
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 2.8rem;
     color: #000;
-    margin-bottom: 10px;
 }
 
 .hero-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 30px;
     color: #000;
@@ -60,11 +60,14 @@
     border-radius: 9999px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .hero-button:hover {
-    background-color: #444;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
 }
 
     </style>
