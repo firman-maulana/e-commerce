@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
     .navbar {
         position: fixed;
@@ -9,6 +10,7 @@
         padding: 15px 0;
         transition: all 0.3s ease;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3), transparent);
+        font-family: 'Poppins';
     }
 
     .navbar.scrolled {

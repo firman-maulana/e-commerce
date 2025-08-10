@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
     footer {
         background: black;
@@ -56,6 +58,7 @@
         line-height: 1.6;
         margin-bottom: 24px;
         font-size: 0.95rem;
+        font-family: 'Roboto';
     }
 
     .social-links {
@@ -94,7 +97,7 @@
         font-weight: 600;
         margin-bottom: 20px;
         color: #ffffff;
-        /* Diubah ke putih */
+        font-family: 'Poppins';
     }
 
     .footer-links {
@@ -112,6 +115,7 @@
         text-decoration: none;
         font-size: 0.95rem;
         transition: color 0.3s ease;
+        font-family: 'Roboto';
     }
 
     .footer-links a:hover {
@@ -158,6 +162,7 @@
         color: white;
         font-size: 0.9rem;
         margin: 0;
+        font-family: 'Poppins';
     }
 
     .footer-legal {

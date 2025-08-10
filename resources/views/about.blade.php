@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
-
+@section('style')
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
     * {
         margin: 0;
@@ -10,10 +11,13 @@
     }
 
     body {
-        font-family: 'Arial', sans-serif;
         background-color: white;
-        color: #333;
+        color: black;
         line-height: 1.6;
+    }
+
+    body p {
+        font-family: 'Roboto';
     }
 
     .container {
@@ -22,28 +26,30 @@
         padding: 40px 20px;
     }
 
-        /* Header Section */
-        .hero-section {
-            background-color: #f8f9fa;
-            padding: 80px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
+    /* Header Section */
+    .hero-section {
+        background-color: #f8f9fa;
+        padding: 80px 20px;
+        text-align: center;
+        margin-top: 40px;
+    }
 
-        .hero-section h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
-        }
+    .hero-section h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+        font-family: 'Poppins';
+    }
 
-        .hero-section p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
+    .hero-section p {
+        font-size: 1.1rem;
+        color: black;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.8;
+        font-family: 'Roboto';
+    }
 
     .content-wrapper {
         display: flex;
@@ -86,19 +92,21 @@
         font-size: 0.95em;
         text-align: justify;
         margin-bottom: 20px;
-        color: #444;
+        color: black;
+        font-family: 'Roboto';
     }
 
     .highlight {
         font-weight: bold;
         color: #000;
+        font-family: 'Roboto';
     }
 
     .footer-text {
         margin-top: 30px;
-        font-style: italic;
-        color: #666;
+        color: black;
         font-size: 0.9em;
+        font-family: 'Roboto';
     }
 
     @media (max-width: 768px) {
@@ -121,13 +129,15 @@
         }
     }
 </style>
+@endsection
 
-    <section class="hero-section">
-        <h1>About</h1>
-        <p>MANEVIZ is more than fashion — it's a movement born in Malang and built by Gen Z for Gen Z.</p>
-    </section>
-    
-    <div class="container">
+@section('content')
+<section class="hero-section">
+    <h1>About</h1>
+    <p>MANEVIZ is more than fashion — it's a movement born in Malang and built by Gen Z for Gen Z.</p>
+</section>
+
+<div class="container">
 
     <div class="content-wrapper">
         <div class="about-section">

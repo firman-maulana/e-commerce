@@ -4,6 +4,8 @@
 
 @section('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
     * {
         margin: 0;
@@ -43,6 +45,7 @@
     .hero-subtitle {
         font-size: 2.8rem;
         color: #000;
+        font-family: 'Roboto';
     }
 
     .hero-title {
@@ -50,6 +53,7 @@
         font-weight: bold;
         margin-bottom: 30px;
         color: #000;
+        font-family: 'Poppins';
     }
 
     .hero-button {
@@ -62,6 +66,7 @@
         font-weight: 600;
         transition: all 0.3s ease;
         border: 2px solid transparent;
+        font-family: 'Roboto';
     }
 
     .hero-button:hover {
@@ -88,6 +93,7 @@
         align-items: left;
         gap: 15px;
         font-size: 2.2rem;
+        font-family: 'Poppins';
     }
 
     /* Product Cards */
@@ -261,6 +267,7 @@
         align-items: left;
         gap: 15px;
         font-size: 2.2rem;
+        font-family: 'Poppins';
     }
 
     .outfit-grid {
@@ -307,18 +314,22 @@
     font-weight: 600;
     color: #111827;
     margin: 0;
+    font-family: 'Roboto';
 }
 
 .outfit-date {
     font-size: 0.9rem;
     color: #9ca3af;
-    margin-top: 208px;
+    margin-top: 239px;
+    font-family: 'Roboto';
 }
 
 .outfit-dates {
     font-size: 0.9rem;
     color: #9ca3af;
     margin-top: 239px;
+        font-family: 'Roboto';
+
 }
 
 @media (max-width: 768px) {
@@ -355,6 +366,7 @@
         align-items: left;
         gap: 15px;
         font-size: 2.2rem;
+        font-family: 'Poppins';
     }
 
     /* Filter styling */
@@ -388,6 +400,7 @@
         transition: all 0.3s ease;
         white-space: nowrap;
         font-size: 14px;
+        font-family: 'Roboto';
     }
 
     .filter-item:hover {

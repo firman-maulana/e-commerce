@@ -3,6 +3,8 @@
 @section('title', 'Contact')
 
 @section('style')
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
         * {
             margin: 0;
@@ -11,9 +13,12 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
+        }
+
+                body p {
+font-family: 'Roboto';
         }
 
         /* Header Section */
@@ -27,8 +32,9 @@
         .hero-section h1 {
             font-size: 3rem;
             font-weight: bold;
-            color: #333;
+            color: black;
             margin-bottom: 20px;
+            font-family: 'Poppins';
         }
 
         .hero-section p {
@@ -78,7 +84,7 @@
             border-radius: 8px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
-            font-family: inherit;
+            font-family: 'Roboto';
         }
 
         .form-group input:focus,
@@ -109,6 +115,7 @@
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-family: 'Roboto';
         }
 
         .submit-btn:hover {
@@ -125,8 +132,9 @@
 
         .contact-info h2 {
             font-size: 2.2rem;
-            color: #333;
+            color: black;
             font-weight: 600;
+            font-family: 'Poppins';
         }
 
         .contact-info p {
@@ -160,6 +168,7 @@
             margin-bottom: 5px;
             text-transform: uppercase;
             font-weight: normal;
+            font-family: 'Roboto';
         }
 
         .contact-details p {
@@ -176,9 +185,11 @@
 
         .social-section h3 {
             font-size: 1.1rem;
-            color: #333;
+            color: black;
             margin-bottom: 8px;
             font-weight: 600;
+            font-family: 'Poppins';
+
         }
 
         .social-icons {
@@ -207,6 +218,10 @@
             border-color: #000;
             transform: translateY(-2px);
         }
+
+        .contact-icon i {
+    color: black !important;
+}
 
         /* Map Section */
         .map-section {

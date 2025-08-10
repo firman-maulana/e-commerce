@@ -4,6 +4,8 @@
 
 @section('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
     * {
         margin: 0;
@@ -12,7 +14,6 @@
     }
 
     body {
-        font-family: 'Montserrat', sans-serif;
         line-height: 1.6;
         color: #333;
         background-color: white;
@@ -33,6 +34,7 @@
         margin-bottom: 25px;
         text-align: left;
         margin-left: 15px;
+        font-family: 'Poppins';
     }
 
     .categories-header h2 {
@@ -68,6 +70,7 @@
         font-size: 1.7rem;
         font-weight: 5600;
         z-index: 3;
+        font-family: 'Roboto';
     }
 
     /* Category Backgrounds */
@@ -192,6 +195,7 @@
         margin-bottom: 1rem;
         line-height: 1.2;
         animation: slideInLeft 1s ease-out;
+        font-family: 'Poppins';
     }
 
     .hero-subtitle {
@@ -216,11 +220,12 @@
     }
 
     .header h1 {
-        font-size: 2.5em;
+        font-size: 2.2rem;
         font-weight: 400;
         color: #000;
         line-height: 1.2;
         margin-bottom: 0px;
+        font-family: 'Poppins';
     }
 
     .header .bold {
@@ -279,12 +284,12 @@
     }
 
     .trend-text {
-        font-size: 2.5em;
+        font-size: 2.3em;
         font-weight: 700;
         line-height: 1.1;
         position: relative;
         z-index: 2;
-        /* Memastikan teks berada di atas overlay */
+        font-family: 'Poppins';
     }
 
     .shoes-grid {
@@ -338,6 +343,7 @@
         line-height: 1.3;
         flex: 1;
         margin-right: 12px;
+        font-family: 'Poppins';
     }
 
     .rating {
@@ -356,6 +362,7 @@
         color: #ffa500;
         font-weight: 600;
         font-size: 0.9em;
+        font-family: 'Poppins';
     }
 
     .bottom-section {
@@ -368,6 +375,7 @@
         font-size: 1.08em;
         font-weight: 700;
         color: #1a365d;
+        font-family: 'Roboto';
     }
 
     .cart-btn {
@@ -457,6 +465,7 @@
         align-items: left;
         gap: 15px;
         font-size: 2.2rem;
+        font-family: 'Poppins';
     }
 
     .latest-images-grid {
@@ -516,6 +525,7 @@
         z-index: 2;
         text-transform: uppercase;
         letter-spacing: 1px;
+        font-family: 'Poppins';
     }
 
     /* Efek hover pada card */
@@ -550,6 +560,7 @@
         .shop-btn {
             padding: 10px 20px;
             font-size: 1rem;
+            font-family: 'Poppins';
         }
     }
 
@@ -565,6 +576,7 @@
         .shop-btn {
             padding: 8px 16px;
             font-size: 0.9rem;
+            font-family: 'Poppins';
         }
     }
 </style>
