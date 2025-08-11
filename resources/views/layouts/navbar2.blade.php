@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
     .navbar {
         position: fixed;
@@ -9,11 +10,12 @@
         padding: 15px 0;
         transition: all 0.3s ease;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3), transparent);
+        font-family: 'Poppins';
     }
 
     .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
+        background: white;
+        backdrop-filter: blur(15px);
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     }
 
@@ -43,10 +45,6 @@
         font-size: 1rem;
         transition: color 0.3s ease;
         position: relative;
-    }
-
-    .navbar.scrolled .nav-menu a {
-        color: black;
     }
 
     .nav-menu a:hover {
@@ -79,14 +77,6 @@
         opacity: 1;
     }
 
-    .logo.fade-out {
-        opacity: 0;
-    }
-
-    .logo.fade-in {
-        opacity: 1;
-    }
-
     .nav-right {
         display: flex;
         align-items: center;
@@ -97,30 +87,53 @@
 
     .search-container {
         position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-icon {
+        color: black;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .search-bar {
-        padding: 8px 40px 8px 15px;
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 8px 15px;
         border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 25px;
-        background: #000;
-        /* black background */
+        background: rgba(0, 0, 0, 0.8);
         color: white;
-        /* white text */
         font-size: 0.9rem;
-        width: 200px;
+        width: 0;
+        opacity: 0;
         transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        pointer-events: none;
+    }
+
+    .search-bar.active {
+        width: 200px;
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .search-bar::placeholder {
-        color: white;
-        /* white-ish placeholder */
+        color: rgba(255, 255, 255, 0.7);
     }
-
 
     .search-bar:focus {
         outline: none;
-        background: black;
+        border-color: #fff;
+        background: rgba(0, 0, 0, 0.9);
         width: 220px;
     }
 
@@ -137,20 +150,6 @@
     .navbar.scrolled .search-bar:focus {
         border-color: black;
         background: rgba(255, 255, 255, 0.9);
-    }
-
-    .search-icon {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: white;
-        font-size: 1rem;
-        pointer-events: none;
-    }
-
-    .navbar.scrolled .search-icon {
-        color: black;
     }
 
     .nav-icons {
@@ -171,60 +170,26 @@
         justify-content: center;
     }
 
-    .navbar.scrolled .nav-icon {
-        color: black;
-    }
-
-    .nav-icon:hover {
-        color: #ff6b6b;
-    }
-
     .cart-icon {
         position: relative;
     }
 
     .nav-auth-btn {
         margin-left: 10px;
-        padding: 6px 16px;
-        border: 2px solid #ff6b6b;
+        padding: 6px 12px;
+        border: 1px solid white;
         border-radius: 5px;
         text-decoration: none;
         font-size: 14px;
-        color: #ff6b6b;
+        color: white;
         background-color: transparent;
-        font-weight: bold;
         transition: all 0.3s ease;
     }
 
     .nav-auth-btn:hover {
-        background-color: black;
-        color: #fff;
-        box-shadow: 0 2px 10px rgba(255, 107, 107, 0.4);
+        background-color: white;
+        color: #000;
     }
-
-    .sign-in-btn {
-        background-color: transparent;
-        color:  black;
-        border: 2px solid black;
-    }
-
-    .sign-in-btn:hover {
-        background-color: black;
-        color: #fff;
-    }
-
-    .sign-up-btn {
-        background-color: black;
-        color: #fff;
-        border: 2px solid black;
-    }
-
-    .sign-up-btn:hover {
-        background-color: transparent;
-        color: black;
-    }
-
-
 
     .profile-dropdown {
         position: relative;
@@ -257,7 +222,6 @@
         background: #f0f0f0;
     }
 
-
     /* Mobile Menu */
     .mobile-menu-toggle {
         display: none;
@@ -266,10 +230,6 @@
         color: white;
         font-size: 1.5rem;
         cursor: pointer;
-    }
-
-    .navbar.scrolled .mobile-menu-toggle {
-        color: #333;
     }
 
     /* Responsive Design */
@@ -297,7 +257,7 @@
             justify-content: flex-end;
         }
 
-        .search-bar {
+        .search-bar.active {
             width: 150px;
         }
 
@@ -307,19 +267,12 @@
     }
 
     @media (max-width: 480px) {
-        .search-bar {
+        .search-bar.active {
             width: 120px;
         }
 
         .search-bar:focus {
             width: 140px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .nav-auth-btn {
-            padding: 4px 10px;
-            font-size: 12px;
         }
     }
 
@@ -335,7 +288,38 @@
             transform: translateY(0);
         }
     }
+
+    /* tombol sign in dan sign up */
+    .sign-in-btn {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .sign-in-btn:hover {
+        background-color: white;
+        color: #000;
+    }
+
+    .sign-up-btn {
+        background-color: white;
+        color: #000;
+        border: 2px solid white;
+    }
+
+    .sign-up-btn:hover {
+        background-color: transparent;
+        color: white;
+    }
+
+    @media (max-width: 480px) {
+        .nav-auth-btn {
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+    }
 </style>
+
 <nav class="navbar" id="navbar">
     <div class="nav-content">
         <ul class="nav-menu">
@@ -345,65 +329,108 @@
             <li><a href="{{ route('contact') }}">Contact</a></li>
         </ul>
 
-
-
-        <!-- Logo akan berubah saat scroll -->
+        <!-- Logo menggunakan 1 file saja -->
         <img id="logo" src="storage/image/maneviz.png" alt="TIMELESS Logo" class="logo">
 
         <div class="nav-right">
             <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search products...">
-                <span class="search-icon">⌕</span>
+                <i class="bi bi-search search-icon" onclick="toggleSearch()"></i>
+                <input type="text" class="search-bar" id="searchBar" placeholder="Search...">
             </div>
-            @auth
-            <!-- Ikon saat sudah login -->
+
+            <!-- Cart icon: selalu tampil -->
             <div class="nav-icons">
-                <span class="nav-icon cart-icon" onclick="toggleCart()">
-                    <i class="bi bi-cart3"></i>
-                </span>
-                <span class="nav-icon">
-                    <i class="bi bi-truck"></i>
-                </span>
+                <!-- Profile icon (placeholder untuk auth logic) -->
                 <div class="nav-icon profile-dropdown">
                     <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>
                     <div class="profile-menu" id="profileDropdown">
-                        <form method="POST" action="{{ route('logout') }}">
+                        <button type="button"><a href="{{ route('profile') }}">Profile</a></button>
+                        <button type="button"><a href="{{ route('tracking') }}">Tracking</a></button>
+                        <button type="button"><a href="{{ route('chatAdmin') }}">Chat Admin</a></button>
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit">Logout</button>
+                            <button type="submit">
+                                Logout
+                            </button>
                         </form>
                     </div>
                 </div>
+
+                <span class="nav-icon cart-icon" onclick="toggleCart()">
+                    <i class="bi bi-cart3"></i>
+                </span>
             </div>
-            @endauth
 
-            @guest
-            <!-- Tombol saat belum login -->
-            <div class="nav-icons">
-                <a href="{{ route('signIn') }}" class="nav-auth-btn sign-in-btn">Sign In</a>
-                <a href="{{ route('signUp') }}" class="nav-auth-btn sign-up-btn">Sign Up</a>
-
-            </div>
-            @endguest
-
+            <button class="mobile-menu-toggle">☰</button>
         </div>
-
-        <button class="mobile-menu-toggle">☰</button>
     </div>
 </nav>
 
 <script>
     let isScrolled = false;
+    let searchActive = false;
 
+    // Navbar scroll effect tanpa perubahan logo
     window.addEventListener('scroll', function() {
         const navbar = document.getElementById('navbar');
 
         if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+            if (!isScrolled) {
+                navbar.classList.add('scrolled');
+                isScrolled = true;
+            }
         } else {
-            navbar.classList.remove('scrolled');
+            if (isScrolled) {
+                navbar.classList.remove('scrolled');
+                isScrolled = false;
+            }
         }
     });
 
+    // Toggle search bar function
+    function toggleSearch() {
+        const searchBar = document.getElementById('searchBar');
+        searchActive = !searchActive;
+
+        if (searchActive) {
+            searchBar.classList.add('active');
+            setTimeout(() => {
+                searchBar.focus();
+            }, 300);
+        } else {
+            searchBar.classList.remove('active');
+            searchBar.value = '';
+        }
+    }
+
+    // Close search bar when clicking outside
+    document.addEventListener('click', function(e) {
+        const searchContainer = document.querySelector('.search-container');
+        const searchBar = document.getElementById('searchBar');
+
+        if (!searchContainer.contains(e.target) && searchActive) {
+            searchBar.classList.remove('active');
+            searchActive = false;
+            searchBar.value = '';
+        }
+    });
+
+    // Prevent search bar from closing when clicking on the input
+    document.getElementById('searchBar').addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // Handle search on Enter key
+    document.getElementById('searchBar').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const searchValue = this.value;
+            if (searchValue.trim() !== '') {
+                // Implement your search functionality here
+                console.log('Searching for:', searchValue);
+                alert('Searching for: ' + searchValue);
+            }
+        }
+    });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -423,17 +450,6 @@
         alert('Cart functionality would be implemented here');
     }
 
-    // Preload images for smooth transition
-    function preloadImages() {
-        const img1 = new Image();
-        const img2 = new Image();
-        img1.src = logos.default;
-        img2.src = logos.scrolled;
-    }
-
-    // Call preload on page load
-    window.addEventListener('load', preloadImages);
-
     function toggleProfileDropdown() {
         const dropdown = document.getElementById('profileDropdown');
         dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
@@ -444,7 +460,7 @@
         const profileIcon = document.querySelector('.profile-dropdown');
         const dropdown = document.getElementById('profileDropdown');
 
-        if (!profileIcon.contains(e.target)) {
+        if (dropdown && !profileIcon.contains(e.target)) {
             dropdown.style.display = 'none';
         }
     });

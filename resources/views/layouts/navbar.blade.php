@@ -99,18 +99,51 @@
 
     .search-container {
         position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-icon {
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar.scrolled .search-icon {
+        color: #333;
+    }
+
+    .search-icon:hover {
+        color: #ff6b6b;
     }
 
     .search-bar {
-        padding: 8px 40px 8px 15px;
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 8px 15px;
         border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 25px;
         background: rgba(255, 255, 255, 0.1);
         color: white;
         font-size: 0.9rem;
-        width: 200px;
+        width: 0;
+        opacity: 0;
         transition: all 0.3s ease;
         backdrop-filter: blur(10px);
+        pointer-events: none;
+    }
+
+    .search-bar.active {
+        width: 200px;
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .search-bar::placeholder {
@@ -119,7 +152,7 @@
 
     .search-bar:focus {
         outline: none;
-        border-color: #ffff;
+        border-color: #fff;
         background: rgba(255, 255, 255, 0.2);
         width: 220px;
     }
@@ -137,20 +170,6 @@
     .navbar.scrolled .search-bar:focus {
         border-color: black;
         background: rgba(255, 255, 255, 0.9);
-    }
-
-    .search-icon {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: white;
-        font-size: 1rem;
-        pointer-events: none;
-    }
-
-    .navbar.scrolled .search-icon {
-        color: #333;
     }
 
     .nav-icons {
@@ -231,7 +250,6 @@
         background: #f0f0f0;
     }
 
-
     /* Mobile Menu */
     .mobile-menu-toggle {
         display: none;
@@ -271,7 +289,7 @@
             justify-content: flex-end;
         }
 
-        .search-bar {
+        .search-bar.active {
             width: 150px;
         }
 
@@ -281,7 +299,7 @@
     }
 
     @media (max-width: 480px) {
-        .search-bar {
+        .search-bar.active {
             width: 120px;
         }
 
@@ -333,6 +351,7 @@
         }
     }
 </style>
+
 <nav class="navbar" id="navbar">
     <div class="nav-content">
         <ul class="nav-menu">
@@ -342,53 +361,42 @@
             <li><a href="{{ route('contact') }}">Contact</a></li>
         </ul>
 
-
         <!-- Logo akan berubah saat scroll -->
         <img id="logo" src="storage/image/maneviz.png" alt="TIMELESS Logo" class="logo">
 
         <div class="nav-right">
             <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search products...">
-                <span class="search-icon">⌕</span>
+                <i class="bi bi-search search-icon" onclick="toggleSearch()"></i>
+                <input type="text" class="search-bar" id="searchBar" placeholder="Search...">
             </div>
 
-            @auth
-            <!-- Ikon saat sudah login -->
+            <!-- Cart icon: selalu tampil -->
             <div class="nav-icons">
-                <span class="nav-icon cart-icon" onclick="toggleCart()">
-                    <i class="bi bi-cart3"></i>
-                </span>
-                <span class="nav-icon">
-                    <i class="bi bi-truck"></i>
-                </span>
+                <!-- Profile icon (placeholder untuk auth logic) -->
                 <div class="nav-icon profile-dropdown">
                     <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>
                     <div class="profile-menu" id="profileDropdown">
-                        <form method="POST" action="{{ route('logout') }}">
+                        <button type="button"><a href="{{ route('profile') }}">Profile</a></button>
+                        <button type="button"><a href="{{ route('tracking') }}">Tracking</a></button>
+                        <button type="button"><a href="{{ route('chatAdmin') }}">Chat Admin</a></button>
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit">Logout</button>
+                            <button type="submit">
+                                Logout
+                            </button>
                         </form>
                     </div>
                 </div>
 
+                <span class="nav-icon cart-icon" onclick="toggleCart()">
+                    <i class="bi bi-cart3"></i>
+                </span>
             </div>
-            @endauth
 
-            @guest
-            <!-- Tombol saat belum login -->
-            <div class="nav-icons">
-                <a href="{{ route('signIn') }}" class="nav-auth-btn sign-in-btn">Sign In</a>
-                <a href="{{ route('signUp') }}" class="nav-auth-btn sign-up-btn">Sign Up</a>
-
-            </div>
-            @endguest
-
+            <button class="mobile-menu-toggle">☰</button>
         </div>
-
-        <button class="mobile-menu-toggle">☰</button>
     </div>
 </nav>
-
 <script>
     // Logo paths - ganti dengan path logo Anda yang sebenarnya
     const logos = {
@@ -397,6 +405,7 @@
     };
 
     let isScrolled = false;
+    let searchActive = false;
 
     // Navbar scroll effect dengan perubahan logo
     window.addEventListener('scroll', function() {
@@ -432,6 +441,51 @@
                 }, 150);
 
                 isScrolled = false;
+            }
+        }
+    });
+
+    // Toggle search bar function
+    function toggleSearch() {
+        const searchBar = document.getElementById('searchBar');
+        searchActive = !searchActive;
+
+        if (searchActive) {
+            searchBar.classList.add('active');
+            setTimeout(() => {
+                searchBar.focus();
+            }, 300);
+        } else {
+            searchBar.classList.remove('active');
+            searchBar.value = '';
+        }
+    }
+
+    // Close search bar when clicking outside
+    document.addEventListener('click', function(e) {
+        const searchContainer = document.querySelector('.search-container');
+        const searchBar = document.getElementById('searchBar');
+
+        if (!searchContainer.contains(e.target) && searchActive) {
+            searchBar.classList.remove('active');
+            searchActive = false;
+            searchBar.value = '';
+        }
+    });
+
+    // Prevent search bar from closing when clicking on the input
+    document.getElementById('searchBar').addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // Handle search on Enter key
+    document.getElementById('searchBar').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const searchValue = this.value;
+            if (searchValue.trim() !== '') {
+                // Implement your search functionality here
+                console.log('Searching for:', searchValue);
+                alert('Searching for: ' + searchValue);
             }
         }
     });
@@ -475,7 +529,7 @@
         const profileIcon = document.querySelector('.profile-dropdown');
         const dropdown = document.getElementById('profileDropdown');
 
-        if (!profileIcon.contains(e.target)) {
+        if (dropdown && !profileIcon.contains(e.target)) {
             dropdown.style.display = 'none';
         }
     });

@@ -6,6 +6,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ChatAdminController;
+use App\Http\Controllers\TrackingController;
+
 
 // === ROUTE UNTUK HALAMAN UTAMA ===
 Route::get('/', function () {
@@ -23,6 +27,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
 
 // === ROUTE UNTUK USER YANG BELUM LOGIN ===
 Route::middleware('guest')->group(function () {
@@ -52,3 +59,11 @@ Route::middleware('auth')->group(function () {
 // === GOOGLE LOGIN ===
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+
+Route::get('/chat-admin', [ChatAdminController::class, 'index'])->name('chatAdmin');
+Route::post('/chat-admin', [ChatAdminController::class, 'store'])->name('chatAdmin.store');
+
+
+Route::get('/tracking', [TrackingController::class, 'index'])->name('tracking');
+Route::post('/tracking', [TrackingController::class, 'track'])->name('tracking.search');
