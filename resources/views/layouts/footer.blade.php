@@ -285,10 +285,10 @@
             <div class="footer-column">
                 <h4 class="footer-title">Our website</h4>
                 <ul class="footer-links">
-                    <li><a href="#courses">Refund Policy</a></li>
-                    <li><a href="#become-teacher">How to Order</a></li>
-                    <li><a href="#service">FAQs</a></li>
-                    <li><a href="#all-in-one">Terms & Conditions</a></li>
+                    <li><a href="{{ route('refundPolicy') }}">Refund Policy</a></li>
+                    <li><a href="{{ route('howtoOrder') }}">How to Order</a></li>
+                    <li><a href="{{ route('faqs') }}">FAQS</a></li>
+                    <li><a href="{{ route('terms') }}">Terms and Conditions</a></li>
                 </ul>
             </div>
         </div>

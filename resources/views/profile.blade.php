@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('title', 'My Profile')
 
@@ -15,6 +15,8 @@
         line-height: 1.6;
         color: #333;
         background-color: white;
+        margin: 0;
+        padding: 0;
     }
 
     .container {
@@ -23,357 +25,342 @@
         padding: 0 20px;
     }
 
-        .profile {
-            max-width: 1165px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            min-height: 600px;
-            margin-top: 120px;
-        }
-        
+    /* Hero Section with Gradient */
+    .profile-header {
+        height: 300px;
+        background: linear-gradient(135deg, #927c84ff 0%, #828273ff 50%, #a0b5beff 100%);
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        padding: 40px;
+        width: 100%;
+    }
 
-        .sidebar {
-            width: 250px;
-            background: #f8fafc;
-            border-radius: 12px 0 0 12px;
+    .profile-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: white;
+    }
+
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: white;
+        overflow: hidden;
+        border: 4px solid white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-details h1 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-email {
+        font-size: 16px;
+        opacity: 0.9;
+    }
+
+    .view-profile-btn {
+        position: absolute;
+        top: 190px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .view-profile-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Content Area */
+    .tab-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px;
+        background: white;
+    }
+
+    .content-section h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 8px;
+    }
+
+    .content-section p {
+        color: #6b7280;
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+
+    /* Form Styles */
+    .form-section {
+        margin-bottom: 30px;
+    }
+
+    .radio-group {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    .radio-option input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        accent-color: #3b82f6;
+    }
+
+    .radio-option label {
+        font-size: 14px;
+        color: #374151;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .form-row {
+        display: flex;
+        margin-left: px;
+        gap: 20px
+    }
+
+    .form-group {
+        flex: 1;
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #374151;
+        margin-bottom: 8px;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        background: white;
+        transition: all 0.2s;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        background: white;
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        padding-right: 50px;
+    }
+
+    .verified-icon {
+        width: 16px;
+        height: 16px;
+        fill: #10b981;
+    }
+
+    .delete-btn {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #9ca3af;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 4px;
+        transition: color 0.2s;
+    }
+
+    .delete-btn:hover {
+        color: #ef4444;
+    }
+
+    .date-input-wrapper {
+        position: relative;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 40px;
+        justify-content: flex-end;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+    }
+
+    .btn-secondary {
+        background: #f9fafb;
+        color: #374151;
+        border-color: #d1d5db;
+    }
+
+    .btn-secondary:hover {
+        background: #f3f4f6;
+        border-color: #9ca3af;
+    }
+
+    .btn-primary {
+        background: #ff6b6b;
+        color: white;
+        border-color: #ff6b6b;
+    }
+
+    .btn-primary:hover {
+        background: #ff6b6b;
+        border-color: #ff6b6b;
+    }
+
+    /* Password Form Styles for demonstration */
+    .password-form {
+        display: none;
+    }
+
+    .password-form.active {
+        display: block;
+    }
+
+    .password-input-group {
+        margin-bottom: 20px;
+    }
+
+    .password-help {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .profile-header {
             padding: 30px 20px;
-            border-right: 1px solid #e2e8f0;
+            height: 250px;
         }
 
-        .profile-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .profile-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            position: relative;
-            overflow: hidden;
-            background: #e2e8f0;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .edit-icon {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 24px;
-            height: 24px;
-            background: #ff6b35;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .profile-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 5px;
-        }
-
-        .profile-role {
-            font-size: 14px;
-            color: #64748b;
-        }
-
-        .menu-items {
-            list-style: none;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 0;
-            color: #64748b;
-            cursor: pointer;
-            border-radius: 8px;
-            margin-bottom: 5px;
-            transition: all 0.2s;
-        }
-
-        .menu-item:hover {
-            background: #e2e8f0;
-            color: #1e293b;
-        }
-
-        .menu-item.active {
-            background: #fff4ed;
-            color: #ff6b35;
-            font-weight: 500;
-        }
-
-        .menu-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 40px;
-        }
-
-        .form-header {
-            margin-bottom: 30px;
-        }
-
-        .form-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 30px;
-        }
-
-        .form-section {
-            margin-bottom: 30px;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-        }
-
-        .radio-option input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .radio-option label {
-            font-size: 14px;
-            color: #475569;
-            cursor: pointer;
+        .tab-content {
+            padding: 30px 20px;
         }
 
         .form-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            flex: 1;
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            color: #374151;
-            margin-bottom: 8px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 14px;
-            background: #f9fafb;
-            transition: all 0.2s;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #ff6b35;
-            background: white;
-        }
-
-        .form-select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 14px;
-            background: #f9fafb;
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-            padding-right: 50px;
-        }
-
-        .verified-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 12px;
-            color: #10b981;
-            margin-top: 5px;
-        }
-
-        .verified-icon {
-            width: 16px;
-            height: 16px;
-            fill: #10b981;
-        }
-
-        .delete-btn {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #6b7280;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .date-input-wrapper {
-            position: relative;
+            flex-direction: column;
+            gap: 0;
         }
 
         .form-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 40px;
+            flex-direction: column-reverse;
         }
+    }
+</style>
+@endsection
 
-        .btn {
-            flex: 1;
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: 2px solid transparent;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #ff6b35;
-            border-color: #ff6b35;
-        }
-
-        .btn-secondary:hover {
-            background: #fff4ed;
-        }
-
-        .btn-primary {
-            background: #ff6b35;
-            color: white;
-            border-color: #ff6b35;
-        }
-
-        .btn-primary:hover {
-            background: #e55a2b;
-        }
-    </style>
-    @endsection
 @section('content')
-
-    <div class="profile">
-        <div class="sidebar">
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23e2e8f0'/%3E%3Ccircle cx='40' cy='30' r='12' fill='%236b7280'/%3E%3Cpath d='M20 65c0-11 9-20 20-20s20 9 20 20' fill='%236b7280'/%3E%3C/svg%3E" alt="Profile">
-                    <div class="edit-icon">✏️</div>
-                </div>
-                <div class="profile-name">Roland Donald</div>
-                <div class="profile-role">Cashier</div>
+<div class="profile-container">
+    <!-- Header with Gradient Background -->
+    <div class="profile-header">
+        <button class="view-profile-btn">View profile</button>
+        <div class="profile-info">
+            <div class="profile-avatar">
+                <img src="data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23e2e8f0'/%3E%3Ccircle cx='40' cy='30' r='12' fill='%236b7280'/%3E%3Cpath d='M20 65c0-11 9-20 20-20s20 9 20 20' fill='%236b7280'/%3E%3C/svg%3E" alt="Profile">
             </div>
-            
-            <ul class="menu-items">
-                <li class="menu-item active">
-                    <div class="menu-icon">👤</div>
-                    Personal Information
-                </li>
-                <li class="menu-item">
-                    <div class="menu-icon">🔒</div>
-                    Login & Password
-                </li>
-                <li class="menu-item">
-                    <div class="menu-icon">🚪</div>
-                    Log Out
-                </li>
-            </ul>
+            <div class="profile-details">
+                <h1>Username</h1>
+                <div class="profile-email">firman6@mail.com</div>
+            </div>
         </div>
+    </div>
 
-        <div class="main-content">
-            <div class="form-header">
-                <h1 class="form-title">Personal Information</h1>
-                
-                <div class="radio-group">
-                    <div class="radio-option">
-                        <input type="radio" id="male" name="gender" value="male" checked>
-                        <label for="male">Male</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label for="female">Female</label>
-                    </div>
+    <!-- Tab Content -->
+    <div class="tab-content">
+        <!-- Personal Information Form (Default Active) -->
+        <div class="content-section personal-info active">
+            <h2>Profile</h2>
+
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
                 </div>
             </div>
 
             <form class="personal-form">
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="firstName">First Name</label>
+                        <label class="form-label" for="firstName">Name</label>
                         <input type="text" id="firstName" class="form-input" value="Roland">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="lastName">Last Name</label>
-                        <input type="text" id="lastName" class="form-input" value="Donald">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-input">
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="email">Email</label>
-                    <input type="email" id="email" class="form-input" value="rolandDonald@mail.com">
-                    <div class="verified-badge">
-                        <svg class="verified-icon" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                        </svg>
-                        Verified
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <label class="form-label" for="address">Address</label>
-                    <input type="text" id="address" class="form-input" value="3605 Parker Rd.">
+                    <input type="text" id="address" class="form-input">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="phone">Phone Number</label>
-                        <input type="tel" id="phone" class="form-input" value="(405) 555-0128">
+                        <input type="number" id="phone" class="form-input">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="birthDate">Date of Birth</label>
+
+                        <label class="form-label" for="dob">Date of Birth</label>
                         <div class="date-input-wrapper">
-                            <input type="text" id="birthDate" class="form-input" value="1 Feb, 1995">
-                            <button type="button" class="delete-btn">🗑️</button>
+                            <input type="date" id="dob" class="form-input">
                         </div>
                     </div>
                 </div>
@@ -382,65 +369,120 @@
                     <div class="form-group">
                         <label class="form-label" for="location">Location</label>
                         <select id="location" class="form-select">
-                            <option value="atlanta">Atlanta, USA</option>
-                            <option value="new-york">New York, USA</option>
-                            <option value="los-angeles">Los Angeles, USA</option>
+                            <option value="atlanta">Malang</option>
+                            <option value="new-york"> Surabaya</option>
+                            <option value="los-angeles">Semarang</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="postalCode">Postal Code</label>
+                        <label class="form-label" for="postalCode">Post Code</label>
                         <input type="text" id="postalCode" class="form-input" value="30301">
                     </div>
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" class="btn btn-secondary">Discard Changes</button>
+                    <button type="button" class="btn btn-secondary">Cancel</button>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                 </div>
             </form>
         </div>
+
+        <!-- Password Form (Hidden by default, shown when Password tab is clicked) -->
+        <div class="content-section password-form">
+            <h2>Password</h2>
+            <p>Please enter your current password to change your password.</p>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="currentPassword">Current password</label>
+                    <input type="password" id="currentPassword" class="form-input" placeholder="••••••••">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="newPassword">New password</label>
+                    <input type="password" id="newPassword" class="form-input" placeholder="••••••••">
+                    <div class="password-help">Your new password must be more than 8 characters.</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="confirmPassword">Confirm new password</label>
+                    <input type="password" id="confirmPassword" class="form-input" placeholder="••••••••">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update password</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 
-    <script>
-        // Simple form interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            // Menu item interactions
-            const menuItems = document.querySelectorAll('.menu-item');
-            menuItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    menuItems.forEach(mi => mi.classList.remove('active'));
-                    this.classList.add('active');
-                });
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tab switching functionality
+        const tabItems = document.querySelectorAll('.tab-item');
+        const personalInfo = document.querySelector('.personal-info');
+        const passwordForm = document.querySelector('.password-form');
+
+        tabItems.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                tabItems.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+
+                // Handle content switching
+                const tabText = this.textContent.trim();
+
+                if (tabText.startsWith('Password')) {
+                    personalInfo.style.display = 'none';
+                    passwordForm.style.display = 'block';
+                } else {
+                    personalInfo.style.display = 'block';
+                    passwordForm.style.display = 'none';
+                }
             });
+        });
 
-            // Form submission
-            const form = document.querySelector('.personal-form');
+        // Form submission
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('Changes saved successfully!');
             });
+        });
 
-            // Discard changes button
-            const discardBtn = document.querySelector('.btn-secondary');
-            discardBtn.addEventListener('click', function() {
-                if (confirm('Are you sure you want to discard all changes?')) {
-                    form.reset();
-                    // Reset to original values
-                    document.getElementById('firstName').value = 'Roland';
-                    document.getElementById('lastName').value = 'Donald';
-                    document.getElementById('email').value = 'rolandDonald@mail.com';
-                    document.getElementById('address').value = '3605 Parker Rd.';
-                    document.getElementById('phone').value = '(405) 555-0128';
-                    document.getElementById('birthDate').value = '1 Feb, 1995';
-                    document.getElementById('postalCode').value = '30301';
+        // Cancel buttons
+        const cancelBtns = document.querySelectorAll('.btn-secondary');
+        cancelBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
+                    // Reset form or navigate away
+                    const form = this.closest('form');
+                    if (form) {
+                        form.reset();
+                    }
                 }
             });
+        });
 
-            // Delete date button
-            const deleteBtn = document.querySelector('.delete-btn');
+        // Delete date button
+        const deleteBtn = document.querySelector('.delete-btn');
+        if (deleteBtn) {
             deleteBtn.addEventListener('click', function() {
                 document.getElementById('birthDate').value = '';
             });
-        });
-    </script>
+        }
+
+        // View profile button
+        const viewProfileBtn = document.querySelector('.view-profile-btn');
+        if (viewProfileBtn) {
+            viewProfileBtn.addEventListener('click', function() {
+                alert('View profile clicked');
+            });
+        }
+    });
+</script>
 @endsection

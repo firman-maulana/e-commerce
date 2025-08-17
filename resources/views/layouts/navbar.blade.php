@@ -371,27 +371,36 @@
             </div>
 
             <!-- Cart icon: selalu tampil -->
-            <div class="nav-icons">
-                <!-- Profile icon (placeholder untuk auth logic) -->
-                <div class="nav-icon profile-dropdown">
-                    <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>
-                    <div class="profile-menu" id="profileDropdown">
-                        <button type="button"><a href="{{ route('profile') }}">Profile</a></button>
-                        <button type="button"><a href="{{ route('tracking') }}">Tracking</a></button>
-                        <button type="button"><a href="{{ route('chatAdmin') }}">Chat Admin</a></button>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit">
-                                Logout
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <span class="nav-icon cart-icon" onclick="toggleCart()">
-                    <i class="bi bi-cart3"></i>
-                </span>
+<div class="nav-icons">
+    <!-- Profile icon -->
+    <div class="nav-icon profile-dropdown">
+        @auth
+            <!-- Jika sudah login, tampilkan dropdown -->
+            <i class="bi bi-person-circle" onclick="toggleProfileDropdown()"></i>
+            <div class="profile-menu" id="profileDropdown">
+                <button type="button"><a href="{{ route('profile') }}">Profile</a></button>
+                <button type="button"><a href="{{ route('tracking') }}">Tracking</a></button>
+                <button type="button"><a href="{{ route('chatAdmin') }}">Chat Admin</a></button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
             </div>
+        @endauth
+
+@guest
+    <a href="{{ route('signIn') }}">
+        <i class="bi bi-person-circle"></i>
+    </a>
+@endguest
+    </div>
+
+    <!-- Cart icon -->
+<a href="{{ route('cart.index') }}" class="nav-icon cart-icon">
+    <i class="bi bi-cart3"></i>
+</a>
+</div>
+
 
             <button class="mobile-menu-toggle">☰</button>
         </div>

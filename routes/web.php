@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChatAdminController;
 use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 
 
 // === ROUTE UNTUK HALAMAN UTAMA ===
@@ -67,3 +69,43 @@ Route::post('/chat-admin', [ChatAdminController::class, 'store'])->name('chatAdm
 
 Route::get('/tracking', [TrackingController::class, 'index'])->name('tracking');
 Route::post('/tracking', [TrackingController::class, 'track'])->name('tracking.search');
+
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+Route::get('/howtoOrder', function () {
+    return view('howtoOrder');
+})->name('howtoOrder');
+
+Route::get('/refundPolicy', function () {
+    return view('refundPolicy');
+})->name('refundPolicy');
+
+Route::get('/faqs', function () {
+    return view('faqs');
+})->name('faqs');
+
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
+
+
+Route::get('/product-detail/{id}', [ProductController::class, 'show'])->name('detailProduct');
+// atau
+Route::get('/detail-product', [ProductController::class, 'show'])->name('detailProduct');
+
+
+
+// ADMIN //
+Route::prefix('admin')->group(function() {
+    Route::get('/login', [App\Http\Controllers\AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login', [App\Http\Controllers\AdminAuthController::class, 'login'])->name('admin.login.submit');
+    Route::post('/logout', [App\Http\Controllers\AdminAuthController::class, 'logout'])->name('admin.logout');
+
+    Route::middleware('auth:admin')->group(function() {
+    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+});

@@ -75,43 +75,42 @@
 
     /* Category Backgrounds */
     .hat {
-        background: linear-gradient(135deg, #e67e22, #d35400),
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220"><rect fill="%23795548" width="400" height="220"/><path fill="%23ff5722" d="M50 130c30-10 60-5 90 5s60 15 90 10 60-10 90-5 60 15 90 10v90H50z"/><ellipse cx="200" cy="150" rx="80" ry="15" fill="%23bf360c"/></svg>');
+        background: url('storage/image/hat.png');
         background-size: cover;
         background-position: center;
     }
 
     .shirt {
-        background: linear-gradient(135deg, #3498db, #2980b9),
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220"><rect fill="%236b7280" width="400" height="220"/><path fill="%23ffffff" d="M80 140c25-8 50-3 75 3s50 12 75 8 50-8 75-3 50 12 75 8v72H80z"/><ellipse cx="200" cy="155" rx="70" ry="12" fill="%23e5e7eb"/></svg>');
+        background:
+            url('storage/image/shirt.png');
         background-size: cover;
         background-position: center;
     }
 
     .hoodie {
-        background: linear-gradient(135deg, #1abc9c, #16a085),
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220"><rect fill="%231f2937" width="400" height="220"/><path fill="%2306b6d4" d="M70 135c20-6 40-2 60 2s40 10 60 6 40-6 60-2 40 10 60 6v73H70z"/><rect fill="%23f97316" x="180" y="120" width="40" height="20" rx="10"/><text x="200" y="115" text-anchor="middle" fill="%23ffffff" font-size="12" font-family="Arial">"AIR"</text></svg>');
+        background:
+            url('storage/image/hodiee.png');
         background-size: cover;
         background-position: center;
     }
 
     .trousers {
-        background: linear-gradient(135deg, #27ae60, #229954),
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220"><rect fill="%2315803d" width="400" height="220"/><path fill="%23374151" d="M60 145c28-7 56-2 84 3s56 11 84 7 56-7 84-2v67H60z"/><path fill="%23ffffff" d="M60 145c28-7 56-2 84 3s56 11 84 7 56-7 84-2v25c-28 5-56 0-84-5s-56-11-84-7v-21z"/><path fill="%23ef4444" d="M180 130c15-3 30 0 45 3v10c-15-3-30-6-45-3v-10z"/></svg>');
+        background:
+            url('storage/image/trousers.png');
         background-size: cover;
         background-position: center;
     }
 
     .shoe {
-        background: linear-gradient(135deg, #f39c12, #e67e22),
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220"><rect fill="%23374151" width="400" height="220"/><circle fill="%23fbbf24" cx="350" cy="50" r="30"/><rect fill="%236b7280" y="170" width="400" height="50"/><path fill="%23111827" d="M150 150c25-6 50-1 75 4s50 10 75 6v50c-25 4-50-1-75-6s-50-10-75-4v-50z"/></svg>');
+        background:
+            url('storage/image/shoe.png');
         background-size: cover;
         background-position: center;
     }
 
     .bag {
-        background: linear-gradient(135deg, #95a5a6, #7f8c8d),
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220"><rect fill="%23111827" width="400" height="220"/><path fill="%23ffffff" d="M80 150c30-8 60-3 90 4s60 12 90 8 60-8 90-3v61H80z"/><ellipse cx="200" cy="165" rx="75" ry="10" fill="%23e5e7eb"/><path fill="%23d1d5db" d="M80 150c30-8 60-3 90 4s60 12 90 8 60-8 90-3v15c-30 5-60 0-90-8s-60-12-90-4v-16z"/></svg>');
+        background:
+            url('storage/image/bag.png');
         background-size: cover;
         background-position: center;
     }
@@ -232,16 +231,6 @@
         font-weight: 700;
     }
 
-    .see-more {
-        color: #999;
-        font-size: 1em;
-        cursor: pointer;
-        float: right;
-        margin-top: -60px;
-        margin-right: 15px;
-        /* Menambahkan margin kanan untuk sejajar */
-    }
-
     .content-section {
         display: flex;
         gap: 24px;
@@ -258,7 +247,7 @@
         width: 280px;
         height: 378px;
         border-radius: 12px;
-        background: url('storage/image/firman.jpg');
+        background: url('storage/image/trendshoes.png');
         background-size: cover;
         background-position: center;
         color: white;
@@ -324,7 +313,7 @@
 
     .shoe-image img {
         max-width: 160px;
-        max-height: 140px;
+        max-height: 200px;
         object-fit: contain;
     }
 
@@ -404,11 +393,6 @@
 
         .header {
             margin-left: 0;
-            /* Reset margin pada mobile */
-        }
-
-        .see-more {
-            margin-right: 0;
             /* Reset margin pada mobile */
         }
 
@@ -598,27 +582,27 @@
     </div>
 
     <div class="categories-grid">
-        <a href="#" class="category-card hat">
+        <a href="/products?filter=hat" class="category-card hat">
             <h3>Hat</h3>
         </a>
 
-        <a href="#" class="category-card shirt">
+        <a href="/products?filter=shirt" class="category-card shirt">
             <h3>Shirt</h3>
         </a>
 
-        <a href="#" class="category-card hoodie">
+        <a href="/products?filter=hoodie" class="category-card hoodie">
             <h3>Hoodie</h3>
         </a>
 
-        <a href="#" class="category-card trousers">
+        <a href="/products?filter=trousers" class="category-card trousers">
             <h3>Trousers</h3>
         </a>
 
-        <a href="#" class="category-card shoe">
+        <a href="/products?filter=shoe" class="category-card shoe">
             <h3>Shoe</h3>
         </a>
 
-        <a href="#" class="category-card bag">
+        <a href="/products?filter=bag" class="category-card bag">
             <h3>Bag</h3>
         </a>
     </div>
@@ -628,7 +612,6 @@
 <section class="timeless">
     <div class="header">
         <h1>Sure Steps, <span class="bold">Latest<br>Style</span>, Comfort Every Day!</h1>
-        <div class="see-more">See More →</div>
     </div>
 
     <div class="content-section">
@@ -639,7 +622,7 @@
         <div class="shoes-grid">
             <div class="shoe-card">
                 <div class="shoe-image">
-                    <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7d9211c-26e7-431a-ac24-b0540fb3c00f/air-force-1-07-mens-shoes-jBrhbr.png" alt="Air Force 1">
+                    <img src="storage/image/shoe1.png" alt="Air Force 1">
                 </div>
                 <div class="shoe-info">
                     <div class="shoe-title">Air Force 1 '07 Men's Basketball Shoes - White</div>
@@ -658,7 +641,7 @@
 
             <div class="shoe-card">
                 <div class="shoe-image">
-                    <img src="https://images.asics.com/is/image/asics/1201A789_020_SR_RT_GLB?$zoom$" alt="Gel-Nyc 2055">
+                    <img src="storage/image/shoe2.png" alt="Gel-Nyc 2055">
                 </div>
                 <div class="shoe-info">
                     <div class="shoe-title">Gel-Nyc 2055 Unisex Sneakers Shoes</div>
@@ -677,7 +660,7 @@
 
             <div class="shoe-card">
                 <div class="shoe-image">
-                    <img src="https://nb.scene7.com/is/image/NB/m530shg_nb_02_i?$pdpflexf2$&wid=440&hei=440" alt="NB 530">
+                    <img src="storage/image/shoe3.png" alt="NB 530">
                 </div>
                 <div class="shoe-info">
                     <div class="shoe-title">530 Unisex Sneaker Shoes - White</div>

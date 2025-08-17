@@ -231,11 +231,11 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 12px;
         }
-        
+
         .hero-subtitle {
             font-size: 2.2rem;
         }
-        
+
         .hero-title {
             font-size: 2.8rem;
         }
@@ -249,7 +249,7 @@
         }
     }
 
-        /* inspiration outfit */
+    /* inspiration outfit */
     .inspirasioutfit {
         padding: 30px 20px;
     }
@@ -271,84 +271,86 @@
     }
 
     .outfit-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    padding: 0 15px;
-    justify-content: space-between;
-}
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        padding: 0 15px;
+        justify-content: space-between;
+    }
 
-.outfit-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 100px; /* Jarak antar card diperkecil */
-    padding: 0 15px;
-    justify-content: flex-start;
-}
-
-.outfit-card {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    max-width: 480px;
-    width: 100%;
-    align-items: flex-start;
-}
-
-.outfit-card img {
-    width: 260px; /* Ukuran gambar diperbesar */
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
-.outfit-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.outfit-content h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #111827;
-    margin: 0;
-    font-family: 'Roboto';
-}
-
-.outfit-date {
-    font-size: 0.9rem;
-    color: #9ca3af;
-    margin-top: 239px;
-    font-family: 'Roboto';
-}
-
-.outfit-dates {
-    font-size: 0.9rem;
-    color: #9ca3af;
-    margin-top: 239px;
-        font-family: 'Roboto';
-
-}
-
-@media (max-width: 768px) {
     .outfit-grid {
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 100px;
+        /* Jarak antar card diperkecil */
+        padding: 0 15px;
+        justify-content: flex-start;
     }
 
     .outfit-card {
-        flex-direction: column;
-        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        max-width: 480px;
+        width: 100%;
+        align-items: flex-start;
     }
 
     .outfit-card img {
-        width: 100%;
+        width: 260px;
+        /* Ukuran gambar diperbesar */
         height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        flex-shrink: 0;
     }
-}
 
-        /* our collections */
+    .outfit-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .outfit-content h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111827;
+        margin: 0;
+        font-family: 'Roboto';
+    }
+
+    .outfit-date {
+        font-size: 0.9rem;
+        color: #9ca3af;
+        margin-top: 239px;
+        font-family: 'Roboto';
+    }
+
+    .outfit-dates {
+        font-size: 0.9rem;
+        color: #9ca3af;
+        margin-top: 239px;
+        font-family: 'Roboto';
+
+    }
+
+    @media (max-width: 768px) {
+        .outfit-grid {
+            flex-direction: column;
+        }
+
+        .outfit-card {
+            flex-direction: column;
+            max-width: 100%;
+        }
+
+        .outfit-card img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    /* our collections */
     .ourcollection {
         padding: 30px 20px;
     }
@@ -379,13 +381,16 @@
         display: flex;
         gap: 15px;
         overflow-x: auto;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE/Edge */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
         padding: 5px 0;
     }
 
     .filter-scroll::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
+        display: none;
+        /* Chrome/Safari */
     }
 
     .filter-item {
@@ -448,7 +453,7 @@
         .collection-products-grid {
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         }
-        
+
         .collection-product {
             /* Ensure all cards have the same width regardless of how many are visible */
             width: 100%;
@@ -461,17 +466,15 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 12px;
         }
-        
+
         .collection-product {
             min-width: 200px;
         }
     }
 
     html {
-  scroll-behavior: smooth;
-}
-
-
+        scroll-behavior: smooth;
+    }
 </style>
 @endsection
 
@@ -488,7 +491,7 @@
     <div class="bestseller-header">
         <h2>Best Seller</h2>
     </div>
-    
+
     <div class="products-grid">
         <!-- Product Card 1 -->
         <div class="product-card">
@@ -514,7 +517,7 @@
                     <span class="product-price">AED 49.0</span>
                     <span class="original-price">AED 70.0</span>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
+
             </div>
         </div>
 
@@ -542,7 +545,7 @@
                     <span class="product-price">AED 49.0</span>
                     <span class="original-price">AED 70.0</span>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
+
             </div>
         </div>
 
@@ -570,7 +573,6 @@
                     <span class="product-price">AED 49.0</span>
                     <span class="original-price">AED 70.0</span>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
 
@@ -598,7 +600,7 @@
                     <span class="product-price">AED 49.0</span>
                     <span class="original-price">AED 70.0</span>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
+
             </div>
         </div>
     </div>
@@ -631,404 +633,321 @@
 </section>
 
 <section class="ourcollection">
-    <div class="ourcollection-header">
-        <h2>Our Collections</h2>
-    </div>
-    
-    <!-- Filter Section -->
-    <div class="filter-container">
-        <div class="filter-scroll">
-            <div class="filter-item active" data-filter="all">All Product</div>
-            <div class="filter-item" data-filter="hat">Hat</div>
-            <div class="filter-item" data-filter="shirt">Shirt</div>
-            <div class="filter-item" data-filter="hoodie">Hoodie</div>
-            <div class="filter-item" data-filter="trousers">Trousers</div>
-            <div class="filter-item" data-filter="shoe">Shoe</div>
-            <div class="filter-item" data-filter="bag">Bag</div>
+        <div class="ourcollection-header">
+            <h2>Our Collections</h2>
         </div>
-    </div>
 
-    <!-- Collection Products Grid -->
-    <div class="collection-products-grid" id="allProducts">
-        <!-- Hat Products -->
-        <div class="product-card collection-product" data-category="hat">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=300&h=200&fit=crop" alt="Baseball Cap" class="product-image">
+        <!-- Filter Section -->
+        <div class="filter-container">
+            <div class="filter-scroll">
+                <div class="filter-item active" data-filter="all">All Product</div>
+                <div class="filter-item" data-filter="hat">Hat</div>
+                <div class="filter-item" data-filter="shirt">Shirt</div>
+                <div class="filter-item" data-filter="hoodie">Hoodie</div>
+                <div class="filter-item" data-filter="trousers">Trousers</div>
+                <div class="filter-item" data-filter="shoe">Shoe</div>
+                <div class="filter-item" data-filter="bag">Bag</div>
             </div>
-            <div class="product-info">
-                <h3>Baseball Cap</h3>
-                <p class="product-brand">Urban Style</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+        </div>
+
+        <!-- Collection Products Grid -->
+        <div class="collection-products-grid" id="allProducts">
+            <!-- Hat Products -->
+            <div class="product-card collection-product" data-category="hat" data-product-id="1" data-product-name="baseball-cap">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=300&h=200&fit=crop" alt="Baseball Cap" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Baseball Cap</h3>
+                    <p class="product-brand">Urban Style</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.5</span>
+                        <span class="sold-count">234 sold</span>
                     </div>
-                    <span class="rating-text">4.5</span>
-                    <span class="sold-count">234 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 85.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card collection-product" data-category="hoodie">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=200&fit=crop" alt="Pullover Hoodie" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Pullover Hoodie</h3>
-                <p class="product-brand">Comfort Zone</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+                    <div class="product-price-container">
+                        <span class="product-price">AED 85.0</span>
                     </div>
-                    <span class="rating-text">4.8</span>
-                    <span class="sold-count">789 sold</span>
                 </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 280.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
             </div>
-        </div>
 
-        <div class="product-card collection-product" data-category="shirt">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop" alt="Cotton T-Shirt" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Cotton T-Shirt</h3>
-                <p class="product-brand">Casual Comfort</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+            <div class="product-card collection-product" data-category="hoodie" data-product-id="2" data-product-name="pullover-hoodie">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=200&fit=crop" alt="Pullover Hoodie" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Pullover Hoodie</h3>
+                    <p class="product-brand">Comfort Zone</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.8</span>
+                        <span class="sold-count">789 sold</span>
                     </div>
-                    <span class="rating-text">4.7</span>
-                    <span class="sold-count">567 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 120.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card collection-product" data-category="bag">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop" alt="Backpack" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Travel Backpack</h3>
-                <p class="product-brand">Adventure Gear</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+                    <div class="product-price-container">
+                        <span class="product-price">AED 280.0</span>
                     </div>
-                    <span class="rating-text">4.7</span>
-                    <span class="sold-count">345 sold</span>
                 </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 180.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
             </div>
-        </div>
 
-        <div class="product-card collection-product" data-category="hat">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=300&h=200&fit=crop" alt="Bucket Hat" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Bucket Hat</h3>
-                <p class="product-brand">Street Wear</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">☆</span>
+            <div class="product-card collection-product" data-category="shirt" data-product-id="3" data-product-name="cotton-t-shirt">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop" alt="Cotton T-Shirt" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Cotton T-Shirt</h3>
+                    <p class="product-brand">Casual Comfort</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.7</span>
+                        <span class="sold-count">567 sold</span>
                     </div>
-                    <span class="rating-text">4.3</span>
-                    <span class="sold-count">189 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 95.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card collection-product" data-category="trousers">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop" alt="Chino Trousers" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Chino Trousers</h3>
-                <p class="product-brand">Smart Casual</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+                    <div class="product-price-container">
+                        <span class="product-price">AED 120.0</span>
                     </div>
-                    <span class="rating-text">4.5</span>
-                    <span class="sold-count">456 sold</span>
                 </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 195.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
             </div>
-        </div>
 
-        <div class="product-card collection-product" data-category="shoe">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop" alt="Sneakers" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Running Sneakers</h3>
-                <p class="product-brand">Sport Gear</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+            <div class="product-card collection-product" data-category="bag" data-product-id="4" data-product-name="travel-backpack">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop" alt="Backpack" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Travel Backpack</h3>
+                    <p class="product-brand">Adventure Gear</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.7</span>
+                        <span class="sold-count">345 sold</span>
                     </div>
-                    <span class="rating-text">4.9</span>
-                    <span class="sold-count">923 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 340.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card collection-product" data-category="shirt">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=300&h=200&fit=crop" alt="Polo Shirt" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Polo Shirt</h3>
-                <p class="product-brand">Classic Style</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">☆</span>
+                    <div class="product-price-container">
+                        <span class="product-price">AED 180.0</span>
                     </div>
-                    <span class="rating-text">4.4</span>
-                    <span class="sold-count">423 sold</span>
                 </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 150.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
             </div>
-        </div>
 
-        <div class="product-card collection-product" data-category="hoodie">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop" alt="Zip Hoodie" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Zip Hoodie</h3>
-                <p class="product-brand">Urban Wear</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">☆</span>
+            <div class="product-card collection-product" data-category="hat" data-product-id="5" data-product-name="bucket-hat">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=300&h=200&fit=crop" alt="Bucket Hat" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Bucket Hat</h3>
+                    <p class="product-brand">Street Wear</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </div>
+                        <span class="rating-text">4.3</span>
+                        <span class="sold-count">189 sold</span>
                     </div>
-                    <span class="rating-text">4.6</span>
-                    <span class="sold-count">634 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 320.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card collection-product" data-category="trousers">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=300&h=200&fit=crop" alt="Denim Jeans" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Denim Jeans</h3>
-                <p class="product-brand">Classic Denim</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">☆</span>
+                    <div class="product-price-container">
+                        <span class="product-price">AED 95.0</span>
                     </div>
-                    <span class="rating-text">4.4</span>
-                    <span class="sold-count">812 sold</span>
                 </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 225.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
             </div>
-        </div>
 
-        <div class="product-card collection-product" data-category="shoe">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=200&fit=crop" alt="Casual Shoes" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Casual Shoes</h3>
-                <p class="product-brand">Everyday Comfort</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">☆</span>
+            <div class="product-card collection-product" data-category="trousers" data-product-id="6" data-product-name="chino-trousers">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=200&fit=crop" alt="Chino Trousers" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Chino Trousers</h3>
+                    <p class="product-brand">Smart Casual</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.5</span>
+                        <span class="sold-count">456 sold</span>
                     </div>
-                    <span class="rating-text">4.3</span>
-                    <span class="sold-count">567 sold</span>
-                </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 275.0</span>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card collection-product" data-category="bag">
-            <div class="product-image-container">
-                <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=300&h=200&fit=crop" alt="Messenger Bag" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3>Messenger Bag</h3>
-                <p class="product-brand">Professional</p>
-                <div class="product-rating">
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">☆</span>
+                    <div class="product-price-container">
+                        <span class="product-price">AED 195.0</span>
                     </div>
-                    <span class="rating-text">4.2</span>
-                    <span class="sold-count">278 sold</span>
                 </div>
-                <div class="product-price-container">
-                    <span class="product-price">AED 220.0</span>
+            </div>
+
+            <div class="product-card collection-product" data-category="shoe" data-product-id="7" data-product-name="running-sneakers">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop" alt="Sneakers" class="product-image">
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="product-info">
+                    <h3>Running Sneakers</h3>
+                    <p class="product-brand">Sport Gear</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">4.9</span>
+                        <span class="sold-count">923 sold</span>
+                    </div>
+                    <div class="product-price-container">
+                        <span class="product-price">AED 340.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card collection-product" data-category="shirt" data-product-id="8" data-product-name="polo-shirt">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=300&h=200&fit=crop" alt="Polo Shirt" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Polo Shirt</h3>
+                    <p class="product-brand">Classic Style</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </div>
+                        <span class="rating-text">4.4</span>
+                        <span class="sold-count">423 sold</span>
+                    </div>
+                    <div class="product-price-container">
+                        <span class="product-price">AED 150.0</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const filterItems = document.querySelectorAll('.filter-item');
-    const collectionProducts = document.querySelectorAll('.collection-product');
-    const productsGrid = document.querySelector('.collection-products-grid');
-    const ourCollectionSection = document.querySelector('.ourcollection');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterItems = document.querySelectorAll('.filter-item');
+            const collectionProducts = document.querySelectorAll('.collection-product');
+            const productsGrid = document.querySelector('.collection-products-grid');
+            const ourCollectionSection = document.querySelector('.ourcollection');
 
-    function shuffleArray(array) {
-        const shuffled = [...array];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        return shuffled;
-    }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const defaultFilter = urlParams.get('filter') || 'all';
-
-    const allProducts = Array.from(collectionProducts);
-
-    if (defaultFilter === 'all') {
-        const shuffledProducts = shuffleArray(allProducts);
-        shuffledProducts.forEach(product => {
-            productsGrid.appendChild(product);
-        });
-    }
-
-    function applyFilter(filterValue, shouldScroll = true) {
-        filterItems.forEach(filter => filter.classList.remove('active'));
-
-        const activeFilter = document.querySelector(`.filter-item[data-filter="${filterValue}"]`);
-        if (activeFilter) {
-            activeFilter.classList.add('active');
-        }
-
-        collectionProducts.forEach(product => {
-            const productCategory = product.getAttribute('data-category');
-            if (filterValue === 'all' || productCategory === filterValue) {
-                product.classList.remove('hidden');
-            } else {
-                product.classList.add('hidden');
-            }
-        });
-
-        setTimeout(() => {
-            productsGrid.style.display = 'none';
-            productsGrid.offsetHeight;
-            productsGrid.style.display = 'grid';
-        }, 10);
-
-        // ✅ Hanya scroll jika parameter filter ada dan bukan 'all'
-        if (shouldScroll && filterValue !== 'all') {
-            setTimeout(() => {
-                if (ourCollectionSection) {
-                    ourCollectionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Shuffle function
+            function shuffleArray(array) {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
                 }
-            }, 50);
-        }
-    }
+                return shuffled;
+            }
 
-    // Jalankan saat pertama kali load
-    const isInitialLoad = window.location.search.includes('filter=');
-    applyFilter(defaultFilter, isInitialLoad);
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const defaultFilter = urlParams.get('filter') || 'all';
 
-    // Event klik
-    filterItems.forEach(item => {
-        item.addEventListener('click', function () {
-            const selectedFilter = this.getAttribute('data-filter');
-            applyFilter(selectedFilter, true);
+            const allProducts = Array.from(collectionProducts);
 
-            // Update URL tanpa reload
-            const newUrl = `${window.location.pathname}?filter=${selectedFilter}`;
-            history.replaceState(null, '', newUrl);
+            // Shuffle products if showing all
+            if (defaultFilter === 'all') {
+                const shuffledProducts = shuffleArray(allProducts);
+                shuffledProducts.forEach(product => {
+                    productsGrid.appendChild(product);
+                });
+            }
+
+            // Filter function
+            function applyFilter(filterValue, shouldScroll = true) {
+                filterItems.forEach(filter => filter.classList.remove('active'));
+
+                const activeFilter = document.querySelector(`.filter-item[data-filter="${filterValue}"]`);
+                if (activeFilter) {
+                    activeFilter.classList.add('active');
+                }
+
+                collectionProducts.forEach(product => {
+                    const productCategory = product.getAttribute('data-category');
+                    if (filterValue === 'all' || productCategory === filterValue) {
+                        product.classList.remove('hidden');
+                    } else {
+                        product.classList.add('hidden');
+                    }
+                });
+
+                setTimeout(() => {
+                    productsGrid.style.display = 'none';
+                    productsGrid.offsetHeight;
+                    productsGrid.style.display = 'grid';
+                }, 10);
+
+                if (shouldScroll && filterValue !== 'all') {
+                    setTimeout(() => {
+                        if (ourCollectionSection) {
+                            ourCollectionSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }, 50);
+                }
+            }
+
+            // Initial filter application
+            const isInitialLoad = window.location.search.includes('filter=');
+            applyFilter(defaultFilter, isInitialLoad);
+
+            // Filter click events
+            filterItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const selectedFilter = this.getAttribute('data-filter');
+                    applyFilter(selectedFilter, true);
+
+                    const newUrl = `${window.location.pathname}?filter=${selectedFilter}`;
+                    history.replaceState(null, '', newUrl);
+                });
+            });
+
+            // Product card click events - REDIRECT TO DETAIL PAGE
+            collectionProducts.forEach(product => {
+                product.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product-id');
+                    const productName = this.getAttribute('data-product-name');
+                    
+                    // Option 1: Redirect using product ID
+                    // window.location.href = `/product/${productId}`;
+                    
+                    // Option 2: Redirect using product name (slug)
+                    // window.location.href = `/product/${productName}`;
+                    
+                    // Option 3: For Laravel routes - adjust as needed
+                    window.location.href = `/detail-product?id=${productId}&name=${productName}`;
+                    
+                    // Option 4: If you have a specific route name
+                    // window.location.href = `{{ route('detailProduct', ':id') }}`.replace(':id', productId);
+                });
+            });
         });
-    });
-});
-</script>
+    </script>
 @endsection
